@@ -358,6 +358,11 @@ $glow: drop-shadow(0 0 4px $accent);
     }
   }
 
+  // Fiche ouverte : son propre lien RAPPORT suffit, on masque celui du résumé.
+  &__panel--sheet-open &__report {
+    display: none;
+  }
+
   &__report {
     font-family: $font-mono;
     font-size: 0.75rem;
@@ -371,6 +376,68 @@ $glow: drop-shadow(0 0 4px $accent);
     }
   }
 
+  // --- Fiche déroulée au clic : même technique que l'accordéon (0fr ↔ 1fr) ---
+  &__sheet {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;  // fermée : hors de l'ordre de tabulation
+    opacity: 0;
+    transition:
+      grid-template-rows $fast ease,
+      opacity $fast ease,
+      visibility $fast;
+
+    // À l'ouverture, visibility change tout de suite (pas de transition) :
+    // la fiche doit être visible dès maintenant pour recevoir le focus.
+    // À la fermeture, la transition de base la garde visible pendant le repli.
+    &.is-open {
+      grid-template-rows: 1fr;
+      visibility: visible;
+      opacity: 1;
+      transition:
+        grid-template-rows $fast ease,
+        opacity $fast ease;
+    }
+  }
+
+  &__sheet-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  &__sheet-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    border-top: $border;
+  }
+
+  &__sheet-title {
+    font-family: $font-mono;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: $text-title;
+  }
+
+  &__sheet-close {
+    min-height: $tap-min;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    color: $label;
+    transition: color $fast;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__sheet-content {
+    padding-top: 0.5rem;
+  }
+
   // --- Moins d'animations : radar figé, tous les contacts allumés ---
   @include reduced-motion {
     &__beam,
@@ -380,7 +447,8 @@ $glow: drop-shadow(0 0 4px $accent);
     }
 
     &__brackets,
-    &__brackets-inner {
+    &__brackets-inner,
+    &__sheet {
       transition: none;
     }
   }

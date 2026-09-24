@@ -267,7 +267,7 @@
           <aside class="radar__panel" aria-labelledby="radar-panel-title">
             <p class="radar__panel-title" id="radar-panel-title">Contact verrouillé</p>
             <div class="radar__panel-body" aria-live="polite">
-              <p class="radar__panel-empty">Aucun contact. Survolez un point du radar ou atteignez-le avec Tab.</p>
+              <p class="radar__panel-empty">Aucun contact. Survolez un point du radar ou atteignez-le avec Tab, puis cliquez pour ouvrir sa fiche.</p>
               <div class="radar__info" id="info-msn-001" hidden>
                 <dl class="radar__data">
                   <div class="radar__data-row"><dt>Contact</dt><dd>so_long</dd></div>
@@ -347,6 +347,17 @@
                   <div class="radar__data-row"><dt>Statut</dt><dd>Non confirmé</dd></div>
                 </dl>
                 <a class="radar__report" href="#msn-008">Rapport <span class="visually-hidden">de mission AirQuality</span> <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+
+            <!-- Fiche déroulée au clic : radarLock.js y copie le contenu de la carte de la mission. -->
+            <div class="radar__sheet" id="radar-sheet">
+              <div class="radar__sheet-inner">
+                <div class="radar__sheet-header">
+                  <p class="radar__sheet-title" tabindex="-1">Fiche mission</p>
+                  <button class="radar__sheet-close" type="button">[ FERMER ]</button>
+                </div>
+                <div class="radar__sheet-content"></div>
               </div>
             </div>
           </aside>

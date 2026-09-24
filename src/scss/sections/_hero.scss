@@ -42,7 +42,7 @@
   @include bp(lg) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 43.75rem);
     gap: 4rem;
-    align-items: center;
+    align-items: start;  // quand la fiche du radar se déroule, le texte reste en place
     padding-block: 4rem $section-gap-lg;
   }
 }

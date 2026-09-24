@@ -4,6 +4,7 @@ import { DESKTOP_QUERY } from './breakpoints.js';
 // - Bascule décoratif / interactif selon la largeur d'écran.
 // - Survol ou focus d'un contact : crochets de visée, panneau « Contact verrouillé »
 //   et mise en évidence de la carte de la mission.
+// - Clic (ou Entrée) sur un contact : la fiche du projet se déroule sous le radar.
 export function initRadarLock() {
   const svg = document.querySelector('.radar__svg');
   if (!svg) return;
@@ -11,8 +12,13 @@ export function initRadarLock() {
   const contacts = [...svg.querySelectorAll('.radar__contact')];
   const brackets = svg.querySelector('.radar__brackets');
   const emptyMessage = document.querySelector('.radar__panel-empty');
+  const panel = document.querySelector('.radar__panel');
+  const sheet = document.getElementById('radar-sheet');
+  const sheetTitle = sheet.querySelector('.radar__sheet-title');
+  const sheetContent = sheet.querySelector('.radar__sheet-content');
   const desktop = window.matchMedia(DESKTOP_QUERY);
-  let locked = null;
+  let locked = null;       // contact visé (survol, focus ou clic)
+  let openContact = null;  // contact dont la fiche est déroulée
 
   // "#msn-005" → "msn-005"
   function missionId(contact) {
@@ -48,6 +54,38 @@ export function initRadarLock() {
     document.querySelector(`#${id} .mission-card`)?.classList.add('mission-card--locked');
   }
 
+  function onKeydown(event) {
+    if (event.key === 'Escape') closeSheet({ returnFocus: true });
+  }
+
+  // La fiche reprend le contenu de la carte de la mission, déjà écrit dans le HTML :
+  // le texte n'existe qu'à un seul endroit.
+  function openSheet(contact) {
+    const id = missionId(contact);
+    const card = document.getElementById(id);
+    openContact = null;  // libère le verrouillage pour viser le nouveau contact
+    lock(contact);
+    openContact = contact;
+
+    sheetContent.replaceChildren(...card.querySelector('.mission-card__inner').cloneNode(true).children);
+    sheetTitle.textContent = `Fiche ${id.toUpperCase()} · ${card.querySelector('.contact-row__name').textContent}`;
+    sheet.classList.add('is-open');
+    panel.classList.add('radar__panel--sheet-open');
+    document.addEventListener('keydown', onKeydown);
+    // Le focus passe sur la fiche : un lecteur d'écran l'annonce, et Tab continue dedans.
+    sheetTitle.focus();
+  }
+
+  function closeSheet({ returnFocus = false } = {}) {
+    if (!openContact) return;
+    const contact = openContact;
+    openContact = null;
+    sheet.classList.remove('is-open');
+    panel.classList.remove('radar__panel--sheet-open');
+    document.removeEventListener('keydown', onKeydown);
+    if (returnFocus) contact.focus();
+  }
+
   // Mobile : le radar est une image (caché aux lecteurs d'écran, rien de focusable).
   // Desktop : c'est un groupe de liens atteignables au clavier.
   function setInteractive(interactive) {
@@ -59,6 +97,7 @@ export function initRadarLock() {
       svg.setAttribute('aria-hidden', 'true');
       svg.removeAttribute('role');
       svg.removeAttribute('aria-label');
+      closeSheet();
       unlock();
     }
     contacts.forEach((contact) => {
@@ -67,10 +106,23 @@ export function initRadarLock() {
     });
   }
 
+  // Fiche ouverte : le survol ne déplace plus la visée, pour ne pas décrocher de la fiche lue.
+  function aim(contact) {
+    if (!openContact) lock(contact);
+  }
+
   contacts.forEach((contact) => {
-    contact.addEventListener('mouseenter', () => lock(contact));
-    contact.addEventListener('focus', () => lock(contact));
+    contact.addEventListener('mouseenter', () => aim(contact));
+    contact.addEventListener('focus', () => aim(contact));
+    contact.addEventListener('click', (event) => {
+      // Sans JS (ou en cas d'erreur), le lien mène simplement à la carte de la mission.
+      event.preventDefault();
+      if (contact === openContact) closeSheet();
+      else openSheet(contact);
+    });
   });
+
+  sheet.querySelector('.radar__sheet-close').addEventListener('click', () => closeSheet({ returnFocus: true }));
 
   setInteractive(desktop.matches);
   desktop.addEventListener('change', (event) => setInteractive(event.matches));

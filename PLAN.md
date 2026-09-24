@@ -44,6 +44,8 @@ Roadmap à cocher. Une tâche = un commit. Après chaque tâche : `npm run valid
 
 ## Contenu à fournir
 
+- [x] Clic sur un point du radar (desktop) : fiche du projet déroulée dans le panneau.
+- [ ] Détailler ensemble le contenu des fiches projets (cartes des missions).
 - [ ] Décision clé : Philosophers, Inception, AirQuality.
 - [ ] Phase actuelle d'AirQuality (`[x] / 8`).
 - [ ] Identifiant Formspree (`contactForm.js` + attribut `action` du formulaire).
