@@ -20,6 +20,11 @@
 
   &__label {
     @include label;
+
+    // Intitulés décollés du bord gauche ; les valeurs restent à leur place.
+    @include bp(md) {
+      padding-left: 2.5rem;
+    }
   }
 
   &__value {
