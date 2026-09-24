@@ -93,7 +93,7 @@ Direction artistique du portfolio de **Basile Grosjean**, développeur C/C++ **s
 1. **Header**
    - Mobile (56px) : `B.GROSJEAN // SYS-01` · pastille cyan · `[ MENU ]` (menu plein écran : liens numérotés de 72px, CV, statut + horloge).
    - Desktop (72px) : `BASILE GROSJEAN // SYS-01` · nav `01 Contacts  02 Systèmes  03 Journal  04 Contact` · `● BALAYAGE ACTIF  T+ 00:42:17`.
-2. **Hero** : surtitre cyan, H1 « Je construis des systèmes qui restent en orbite. », présentation, boutons `VOIR LES CONTACTS →` / `CV.PDF ↓`.
+2. **Hero** : surtitre cyan, H1 « J'aime comprendre ce qui se passe sous le capot. », présentation, boutons `VOIR LES CONTACTS →` / `CV.PDF ↓`.
    - Mobile : texte, boutons pleine largeur, puis le radar visuel en pleine largeur.
    - Desktop : texte à gauche avec la légende de lecture (secteurs, distance, base), radar interactif à droite (700px) avec le panneau de verrouillage.
 3. **Bande télémétrie** : LANGAGES · INFRA · RÉSEAU · STATUT (`● Disponible — janv. 2027`). 2×2 en mobile, 4 cellules en desktop.

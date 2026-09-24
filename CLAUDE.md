@@ -35,7 +35,7 @@ Les maquettes de référence sont dans le canvas de design, section « DA retenu
 ### Sections de la page (dans l'ordre)
 
 1. **Header** : `B.GROSJEAN // SYS-01` + menu (mobile) ; `BASILE GROSJEAN // SYS-01` + nav numérotée `01 Contacts  02 Systèmes  03 Journal  04 Contact` + `● BALAYAGE ACTIF  T+ hh:mm:ss` (desktop).
-2. **Hero** : surtitre, H1 « Je construis des systèmes qui restent en orbite. », présentation, boutons `VOIR LES CONTACTS →` et `CV.PDF ↓`, puis le radar (décoratif en mobile, interactif en desktop).
+2. **Hero** : surtitre, H1 « J'aime comprendre ce qui se passe sous le capot. », présentation, boutons `VOIR LES CONTACTS →` et `CV.PDF ↓`, puis le radar (décoratif en mobile, interactif en desktop).
 3. **Bande télémétrie** : LANGAGES · INFRA · RÉSEAU · STATUT.
 4. `#missions` — **01 Contacts** : liste en accordéon groupée par secteur (mobile) ou grille de 9 cartes (desktop), puis la mission `MSN-009` hors portée (l'alternance).
 5. `#systemes` — **02 Systèmes à bord** : inventaire des compétences.
