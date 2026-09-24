@@ -100,7 +100,7 @@ Direction artistique du portfolio de **Basile Grosjean**, développeur C/C++ **s
 4. **01 Contacts** (les missions)
    - **Mobile : liste en accordéon**, groupée par secteur (`SECTEUR C · 4 contacts`…). Chaque ligne (64px) : point de statut, nom, identifiant, statut, `+`. Déplier une ligne affiche la description, les 3 métriques, les tags et `RAPPORT →`. Puis la carte en pointillés `MSN-009 · HORS PORTÉE — Prochaine mission : votre équipe ?`.
    - **Desktop : grille de cartes** (3 colonnes, 9 cartes), synchronisée avec le radar. Chaque carte : bandeau `MSN-00X · SECTEUR` + statut, titre, description (problème, solution, décision clé), 3 métriques, tags + `RAPPORT →`.
-5. **02 Systèmes à bord** : inventaire en lignes (langages, systèmes, réseau, outils, examens, langues).
+5. **02 Systèmes à bord** : inventaire en lignes (langages, systèmes, réseau, outils, langues).
 6. **03 Journal de bord** : parcours au format log, puis `HORS MISSION` (centres d'intérêt).
 7. **04 Canal ouvert** : H2 « Une équipe systèmes ou back-end à renforcer ? », liens MAIL / GITHUB / LINKEDIN / CV, formulaire de transmission (`MSG-001`) : identifiant, email, message, `TRANSMETTRE →`, statut `PRÊT` → `TRANSMISSION…` → `● REÇU`.
 8. **Footer** : `● TOUS SYSTÈMES NOMINAUX` · `© 2026 BASILE GROSJEAN` · `PAGE [xx] kB · 0 TRACKER · BUILD [hash]` · `[ NE PAS APPUYER ]`.
@@ -170,7 +170,6 @@ Sections espacées de 64px en mobile, 120px en desktop. Media queries en `min-wi
 - Systèmes : UNIX · fork / exec / wait · signaux · descripteurs de fichiers · threads et mutex · gestion mémoire manuelle
 - Réseau : sockets · HTTP/1.1 · API REST · WebSockets · poll, epoll
 - Outils : Git · Docker · Node.js · Fastify · SQL · SQLite
-- Examens : Rank 02 à 06 validés en conditions réelles
 - Langues : français natif · anglais B1, C1 en compréhension
 
 ### Journal de bord
