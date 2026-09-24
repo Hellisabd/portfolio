@@ -1,6 +1,43 @@
+import { execSync } from 'node:child_process';
+import { readFileSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
 import { defineConfig } from 'vite';
+
+// Hash court du commit courant, affiché dans le footer.
+function gitHash() {
+  try {
+    return execSync('git rev-parse --short HEAD').toString().trim();
+  } catch {
+    return 'local';
+  }
+}
+
+// Plugin maison : au build, remplace [xx] par le poids de la page (HTML + CSS + JS,
+// sans le CV ni les polices Google) et [hash] par le hash du commit.
+function buildInfo() {
+  return {
+    name: 'build-info',
+    apply: 'build',
+    // writeBundle : appelé une fois les fichiers écrits dans dist/, index.html compris.
+    writeBundle(options, bundle) {
+      const htmlPath = path.join(options.dir, 'index.html');
+      const size = (file) => Buffer.byteLength(file.type === 'chunk' ? file.code : file.source);
+      const assets = Object.values(bundle).filter((file) => /\.(css|js)$/.test(file.fileName));
+      const html = readFileSync(htmlPath, 'utf8');
+      const bytes = Buffer.byteLength(html) + assets.reduce((total, file) => total + size(file), 0);
+
+      writeFileSync(
+        htmlPath,
+        html
+          .replace('<span class="footer__weight">[xx]</span>', `<span class="footer__weight">${Math.round(bytes / 1024)}</span>`)
+          .replace('<span class="footer__hash">[hash]</span>', `<span class="footer__hash">${gitHash()}</span>`),
+      );
+    },
+  };
+}
 
 export default defineConfig({
   // Chemins relatifs : le build fonctionne quel que soit le dossier d'hébergement.
   base: './',
+  plugins: [buildInfo()],
 });
