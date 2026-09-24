@@ -180,12 +180,12 @@ portfolio/
     ├── scss/
     │   ├── main.scss        # uniquement des @use
     │   ├── abstracts/       # _variables, _mixins
-    │   ├── base/            # _reset, _typography, _grid-background
-    │   ├── components/      # _button, _status, _radar, _contact-row, _mission-card, _field, _tag, _telemetry
-    │   └── sections/        # _header, _hero, _missions, _systems, _journal, _contact, _footer
+    │   ├── base/            # _reset, _utilities, _typography, _grid-background
+    │   ├── components/      # _button, _status, _radar, _contact-row, _mission-card, _field, _tag, _telemetry, _console
+    │   └── sections/        # _section, _header, _hero, _missions, _systems, _journal, _contact, _footer
     └── js/
         ├── main.js          # point d'entrée : importe et initialise les modules
-        └── modules/         # mobileMenu, missionClock, radarLock, contactAccordion, reveal, contactForm, easterEgg
+        └── modules/         # breakpoints, mobileMenu, missionClock, radarLock, contactAccordion, reveal, contactForm, easterEgg
 ```
 
 ## Conventions
@@ -212,7 +212,7 @@ portfolio/
 
 ### Formulaire de contact
 - Champs : identifiant (nom ou entreprise), email, message (pas de champ objet). Validation HTML5 puis en JS avec messages d'erreur accessibles (`aria-live`).
-- Envoi via `fetch` vers Formspree (identifiant du formulaire en constante dans `contactForm.js`).
+- Envoi via `fetch` vers Formspree (identifiant du formulaire en constante dans `contactForm.js`, et dans l'attribut `action` du formulaire pour l'envoi sans JS).
 - Champ piège anti-spam (honeypot) masqué.
 - États : prêt, transmission, reçu, échec.
 
