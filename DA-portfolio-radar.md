@@ -155,7 +155,7 @@ Sections espacées de 64px en mobile, 120px en desktop. Media queries en `min-wi
 
 | ID | Mission | Secteur | Relèvement | Distance | Statut | Métriques | Tags |
 |---|---|---|---|---|---|---|---|
-| MSN-001 | so_long | C | 028° | R2 | Confirmé | Rendu MiniLibX · Validation flood fill · Démo jouable [bonus] | c, minilibx |
+| MSN-001 | so_long | C | 028° | R2 | Confirmé | Rendu MLX42 · Validation flood fill · Démo jouable [bonus] | c, mlx42 |
 | MSN-002 | Philosophers | C | 052° | R3 | Confirmé | Threads 1 / philo · Synchro mutex · Temps gettimeofday | c, pthread |
 | MSN-003 | minishell | C | 014° | R3 | Confirmé | Builtins 7 · Signaux SIGINT, SIGQUIT · Équipe 2 | c, unix |
 | MSN-004 | Eyes-Cube | C | 072° | R4 | Confirmé | Rendu raycasting DDA · Équipe 2 · Bonus ennemis, portes | c, minilibx |

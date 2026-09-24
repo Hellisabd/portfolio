@@ -251,7 +251,7 @@ Le numéro de téléphone n'apparaît pas sur le site : seulement l'email, la zo
 
 | ID | Mission | Secteur | Relèvement | Distance | Statut | Métriques | Tags | Dépôt |
 |---|---|---|---|---|---|---|---|---|
-| MSN-001 | so_long | C | 028° | R2 | Confirmé | Rendu MiniLibX · Validation flood fill · Démo jouable [bonus] | c, minilibx | Hellisabd/so_long |
+| MSN-001 | so_long | C | 028° | R2 | Confirmé | Rendu MLX42 · Validation flood fill · Démo jouable [bonus] | c, mlx42 | Hellisabd/so_long |
 | MSN-002 | Philosophers | C | 052° | R3 | Confirmé | Threads 1 / philo · Synchro mutex · Temps gettimeofday | c, pthread | Hellisabd/Philosopher |
 | MSN-003 | minishell | C | 014° | R3 | Confirmé | Builtins 7 · Signaux SIGINT, SIGQUIT · Équipe 2 | c, unix | Hellisabd/minishell |
 | MSN-004 | Eyes-Cube | C | 072° | R4 | Confirmé | Rendu raycasting DDA · Équipe 2 · Bonus ennemis, portes | c, minilibx | Hellisabd/Eyes-Cube |

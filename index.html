@@ -49,9 +49,10 @@
           <p class="hero__eyebrow">Développeur C/C++ · systèmes &amp; back-end</p>
           <h1 class="hero__title" id="hero-title">Je construis des systèmes qui restent en orbite.</h1>
           <p class="hero__intro">
-            Diplômé de l'École 42 (Mulhouse), je poursuis en Pre-Master of Science à Epitech.
-            Je cherche une alternance en développement systèmes ou back-end à partir de janvier 2027,
-            au rythme de 4 semaines en entreprise et 2 semaines à l'école.
+            Diplômé de l'École 42, en Pre-Master of Science à Epitech. Trois ans de C/C++ orienté
+            systèmes et réseau : serveur HTTP événementiel, shell UNIX, programmation concurrente.
+            Je cherche une alternance à partir de janvier 2027 (4 semaines en entreprise, 2 à l'école),
+            avec un intérêt marqué pour l'embarqué, l'énergie et l'environnement.
           </p>
           <div class="hero__actions">
             <a class="button button--primary" href="#missions">Voir les contacts <span aria-hidden="true">→</span></a>
@@ -125,17 +126,17 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-001-body">
-                    <p class="mission-card__desc">Un jeu 2D en vue de dessus : le joueur ramasse tous les objets puis rejoint la sortie. La carte est vérifiée avant le lancement (bords, chemin valide).</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <p class="mission-card__desc">Mon premier projet graphique : un jeu 2D en tuiles où le joueur ramasse tous les objets pour ouvrir la sortie. La carte .ber est validée avant le lancement (rectangulaire, fermée par des murs, chemin valide).</p>
+                    <p class="mission-card__desc">Décision clé : un découpage en cinq modules (lecture de la carte, boucle de jeu, rendu, entrées clavier, état de la partie). Bonus : ennemis en patrouille et animations.</p>
                     <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">MiniLibX</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">MLX42</dd></div>
                       <div class="metrics__item"><dt class="metrics__label">Validation</dt><dd class="metrics__value">flood fill</dd></div>
                       <div class="metrics__item"><dt class="metrics__label">Démo</dt><dd class="metrics__value">jouable [bonus]</dd></div>
                     </dl>
                     <div class="mission-card__footer">
                       <ul class="tags">
                         <li class="tag">c</li>
-                        <li class="tag">minilibx</li>
+                        <li class="tag">mlx42</li>
                       </ul>
                       <a class="mission-card__link" href="https://github.com/Hellisabd/so_long">Rapport <span class="visually-hidden">de mission so_long sur GitHub</span> <span aria-hidden="true">→</span></a>
                     </div>
@@ -154,7 +155,7 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-002-body">
-                    <p class="mission-card__desc">Le problème du dîner des philosophes : chaque philosophe est un thread qui partage des fourchettes avec ses voisins, sans interblocage ni famine.</p>
+                    <p class="mission-card__desc">Le problème du dîner des philosophes : chaque philosophe est un thread qui partage des fourchettes avec ses voisins, sans data race ni interblocage.</p>
                     <p class="mission-card__desc">Décision clé : [à compléter]</p>
                     <dl class="metrics">
                       <div class="metrics__item"><dt class="metrics__label">Threads</dt><dd class="metrics__value">1 / philo</dd></div>
@@ -183,8 +184,8 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-003-body">
-                    <p class="mission-card__desc">Un shell inspiré de bash : analyse de la ligne de commande, pipes, redirections, variables d'environnement, builtins et gestion des signaux.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <p class="mission-card__desc">Premier projet de groupe : un shell inspiré de bash, avec pipes, redirections, here-docs, variables d'environnement et gestion des signaux, sans fuite mémoire.</p>
+                    <p class="mission-card__desc">Décision clé : une chaîne en quatre étapes, lexer, parser (arbre syntaxique), expander, puis executor qui crée les processus et renvoie le code de sortie.</p>
                     <dl class="metrics">
                       <div class="metrics__item"><dt class="metrics__label">Builtins</dt><dd class="metrics__value">7</dd></div>
                       <div class="metrics__item"><dt class="metrics__label">Signaux</dt><dd class="metrics__value">SIGINT, SIGQUIT</dd></div>
@@ -212,8 +213,8 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-004-body">
-                    <p class="mission-card__desc">Un moteur 3D en raycasting, dans l'esprit de Wolfenstein 3D : la vue à la première personne est calculée à partir d'une carte 2D.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <p class="mission-card__desc">Un moteur 3D à la première personne inspiré de Wolfenstein 3D, transformé en vrai jeu avec un objectif : trouver la sortie du labyrinthe.</p>
+                    <p class="mission-card__desc">Décision clé : un rayon lancé par colonne d'écran (DDA), avec correction de l'effet fish-eye. Bonus : ennemis, portes et minimap.</p>
                     <dl class="metrics">
                       <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">raycasting DDA</dd></div>
                       <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
@@ -247,8 +248,8 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-005-body">
-                    <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ : toutes les connexions sont gérées par une seule boucle poll(), avec fichier de configuration, méthodes GET, POST, DELETE et CGI.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ développé en équipe, configurable comme Nginx : méthodes GET, POST, DELETE, uploads et exécution de scripts CGI.</p>
+                    <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle poll() gère toutes les connexions en I/O non bloquantes.</p>
                     <dl class="metrics">
                       <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
                       <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">poll</dd></div>
@@ -283,7 +284,7 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-006-body">
-                    <p class="mission-card__desc">Une infrastructure Docker Compose : Nginx en TLS, WordPress et MariaDB, chacun dans son conteneur, avec des images construites sans image toute faite.</p>
+                    <p class="mission-card__desc">Une infrastructure Docker Compose dans une machine virtuelle : Nginx en TLS, WordPress + php-fpm et MariaDB, chacun dans son conteneur, avec des Dockerfiles écrits sans image toute prête.</p>
                     <p class="mission-card__desc">Décision clé : [à compléter]</p>
                     <dl class="metrics">
                       <div class="metrics__item"><dt class="metrics__label">Conteneurs</dt><dd class="metrics__value">3</dd></div>
@@ -313,8 +314,8 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-007-body">
-                    <p class="mission-card__desc">Un Pong multijoueur en ligne, développé en équipe : parties en temps réel par WebSockets, back-end Fastify et base SQLite.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <p class="mission-card__desc">Projet final du tronc commun : un Pong en ligne revisité, avec matchmaking, classement, amis, notifications en temps réel et 2FA. Tous les bonus validés, dont un second mini-jeu et un mode solo.</p>
+                    <p class="mission-card__desc">Décision clé : toute la plateforme conteneurisée avec Docker Compose et surveillée par Prometheus et Grafana.</p>
                     <dl class="metrics">
                       <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">4</dd></div>
                       <div class="metrics__item"><dt class="metrics__label">Commits</dt><dd class="metrics__value">300+</dd></div>
@@ -398,7 +399,7 @@
         <dl class="inventory">
           <div class="inventory__row">
             <dt class="inventory__label">Langages</dt>
-            <dd class="inventory__value">C · C++ · JavaScript · TypeScript</dd>
+            <dd class="inventory__value">C · C++ · JavaScript · TypeScript · assembleur x86-64</dd>
           </div>
           <div class="inventory__row">
             <dt class="inventory__label">Systèmes</dt>
