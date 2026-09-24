@@ -1,0 +1,95 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Ligne d'accordéon (mobile et tablette).
+// En lg, contactAccordion.js ouvre toutes les lignes et désactive les boutons :
+// la ligne devient l'en-tête d'une carte (voir _mission-card.scss).
+.contact-row {
+  border-bottom: $border;
+
+  &__toggle {
+    display: grid;
+    grid-template-areas:
+      'name sign'
+      'id   status';
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.25rem 1rem;
+    align-items: center;
+    width: 100%;
+    min-height: 4rem;
+    padding-block: 0.75rem;
+    text-align: left;
+    color: $text-title;
+
+    &:hover .contact-row__name {
+      color: $accent;
+    }
+
+    &:disabled {
+      cursor: default;
+      color: $text-title;
+    }
+
+    .status {
+      grid-area: status;
+      justify-self: end;
+    }
+
+    @include bp(lg) {
+      grid-template-areas:
+        'id   status'
+        'name name';
+      gap: 0.75rem 1rem;
+      min-height: 0;
+      padding: 1rem 1.25rem;
+      border-bottom: $border;
+
+      &:hover .contact-row__name {
+        color: $text-title;
+      }
+    }
+  }
+
+  &__name {
+    grid-area: name;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color $fast;
+
+    @include bp(lg) {
+      font-size: 1.3125rem;
+    }
+  }
+
+  &__id {
+    grid-area: id;
+    @include label;
+  }
+
+  &__sign {
+    grid-area: sign;
+    justify-self: end;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: $accent;
+    transition: transform $fast;
+
+    @include bp(lg) {
+      display: none;
+    }
+  }
+
+  &.is-open &__sign {
+    transform: rotate(45deg);  // le + devient une croix
+  }
+
+  @include bp(lg) {
+    border-bottom: 0;
+  }
+
+  @include reduced-motion {
+    &__sign {
+      transition: none;
+    }
+  }
+}

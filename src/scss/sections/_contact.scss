@@ -1,0 +1,107 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// 04 Canal ouvert : liens puis formulaire ; côte à côte en lg.
+.contact {
+  .section__title {
+    max-width: 22ch;
+    margin-bottom: 2.5rem;
+  }
+
+  &__layout {
+    display: grid;
+    gap: 2.5rem;
+
+    @include bp(lg) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: 4rem;
+      align-items: start;
+    }
+  }
+
+  &__links {
+    border-top: $border;
+  }
+
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+    min-height: 3.5rem;
+    padding-block: 1rem;
+    font-family: $font-mono;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: $text-title;
+    overflow-wrap: anywhere;
+    border-bottom: $border;
+    transition: color $fast;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__label {
+    @include label;
+    min-width: 5rem;
+  }
+}
+
+// Formulaire de transmission MSG-001
+.form {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: $surface;
+  border: $border;
+
+  @include bp(md) {
+    padding: 2rem;
+  }
+
+  &__header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: $border;
+  }
+
+  &__title {
+    @include label;
+    color: $text-title;
+  }
+
+  &__status {
+    @include label;
+    color: $accent;
+
+    &--sending {
+      animation: status-blink 1s ease-in-out infinite;
+    }
+
+    &--failed {
+      color: $accent-hover;
+    }
+  }
+
+  // Piège anti-spam : hors de l'écran et des lecteurs d'écran.
+  &__trap {
+    @include visually-hidden;
+  }
+
+  &__submit {
+    @include bp(md) {
+      justify-self: start;
+    }
+  }
+
+  @include reduced-motion {
+    &__status--sending {
+      animation: none;
+    }
+  }
+}

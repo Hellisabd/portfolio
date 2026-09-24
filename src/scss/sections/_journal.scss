@@ -1,0 +1,54 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// 03 Journal de bord : une entrée de log par étape du parcours.
+.log {
+  border-top: $border;
+
+  &__entry {
+    display: grid;
+    grid-template-areas:
+      'date  status'
+      'title title'
+      'code  code';
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.375rem 1rem;
+    align-items: center;
+    padding-block: 1rem;
+    border-bottom: $border;
+
+    .status {
+      grid-area: status;
+    }
+
+    @include bp(md) {
+      grid-template-areas: 'date code title status';
+      grid-template-columns: 7rem 8.5rem minmax(0, 1fr) auto;
+      gap: 1.5rem;
+    }
+  }
+
+  &__date {
+    grid-area: date;
+    @include label;
+  }
+
+  &__code {
+    grid-area: code;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $accent;
+  }
+
+  &__title {
+    grid-area: title;
+    font-family: $font-mono;
+    font-size: 0.9375rem;
+    color: $text-title;
+  }
+}
+
+.journal__subtitle {
+  @include label;
+  margin-block: 3rem 1rem;
+}

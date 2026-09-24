@@ -1,0 +1,179 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Header collant. Mobile : marque + bouton [ MENU ] (menu plein écran).
+// lg : navigation en ligne + statut et horloge.
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5rem;
+  background: $bg;
+  border-bottom: $border;
+  @include container;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    min-height: $tap-min;
+    font-family: $font-mono;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    color: $text-title;
+  }
+
+  // Les espaces en bord d'élément disparaissent dans un conteneur flex :
+  // on les recrée avec une marge d'une largeur de caractère.
+  &__brand-full {
+    display: none;
+    margin-right: 1ch;
+  }
+
+  &__brand-id {
+    margin-left: 1ch;
+    color: $label;
+  }
+
+  // Le bouton n'existe qu'avec JS (sans JS, il ne pourrait rien ouvrir).
+  &__toggle {
+    display: none;
+    min-height: $tap-min;
+    padding-inline: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    color: $accent;
+
+    .js & {
+      display: block;
+    }
+  }
+
+  // --- Menu mobile ---
+  &__panel {
+    display: none;
+  }
+
+  &--open &__panel {
+    position: fixed;
+    inset: 3.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    padding-block: 1rem 2rem;
+    overflow-y: auto;
+    background: $bg;
+    animation: menu-in $fast ease-out;
+    @include container;
+  }
+
+  &__link {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    min-height: 4.5rem;
+    font-family: $font-mono;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: $text-title;
+    border-bottom: $border;
+    transition: color $fast;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__num {
+    font-size: 0.75rem;
+    color: $accent;
+  }
+
+  &__cv {
+    display: flex;
+    gap: 1ch;
+    align-items: center;
+    min-height: 3rem;
+    margin-top: 2rem;
+    font-family: $font-mono;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    color: $text-title;
+  }
+
+  &__status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  // --- Desktop ---
+  @include bp(lg) {
+    height: 4.5rem;
+
+    &__brand-short {
+      display: none;
+    }
+
+    &__brand-full {
+      display: inline;
+    }
+
+    .js &__toggle {
+      display: none;
+    }
+
+    &__panel {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    &__list {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &__link {
+      min-height: $tap-min;
+      font-size: 0.8125rem;
+      gap: 0.5rem;
+      border-bottom: 0;
+    }
+
+    &__cv {
+      display: none;
+    }
+
+    &__status {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @include reduced-motion {
+    &--open &__panel {
+      animation: none;
+    }
+  }
+}
+
+.clock {
+  font-family: $font-mono;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: $label;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+  }
+}

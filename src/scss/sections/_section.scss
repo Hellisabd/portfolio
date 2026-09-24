@@ -1,0 +1,35 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Structure commune des sections numérotées (01 à 04).
+.section {
+  @include container;
+  padding-block: $section-gap;
+
+  @include bp(lg) {
+    padding-block: $section-gap-lg;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+
+  &__num {
+    margin-right: 0.5rem;
+    color: $accent;
+  }
+
+  &__eyebrow {
+    @include label;
+    margin-bottom: 1rem;
+  }
+
+  &__intro {
+    max-width: 40rem;
+    margin-bottom: 2.5rem;
+
+    @include bp(lg) {
+      font-size: 1.0625rem;
+    }
+  }
+}

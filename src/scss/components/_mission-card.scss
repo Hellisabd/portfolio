@@ -1,0 +1,159 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Contenu d'une mission : déplié dans l'accordéon (mobile) ou carte (lg).
+.mission-card {
+  // Corps repliable : on anime la hauteur de la ligne de grille (0fr ↔ 1fr),
+  // ce qui évite de connaître la hauteur réelle du contenu.
+  &__body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition:
+      grid-template-rows $fast ease,
+      opacity $fast ease,
+      visibility $fast;
+  }
+
+  &__inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  &__desc {
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: 1ch;  // remplace l'espace avant la flèche, supprimé par inline-flex
+    align-items: center;
+    min-height: $tap-min;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $accent;
+    transition: color $fast;
+
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+
+  // --- MSN-009 : la prochaine mission, hors portée ---
+  &--next {
+    padding: 1.25rem;
+    background: $surface;
+    border: 1px dashed $line-strong;
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+
+    @include bp(lg) {
+      font-size: 1.3125rem;
+    }
+  }
+
+  // --- Carte (lg) ---
+  @include bp(lg) {
+    .contact-row & {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: $surface;
+      border: $border;
+      transition: border-color $fast;
+    }
+
+    &__body {
+      flex: 1;
+    }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem 1.25rem 0;
+    }
+
+    &__footer {
+      margin-top: auto;
+      margin-bottom: 0.25rem;
+    }
+
+    &--next {
+      display: flex;
+      flex-direction: column;
+
+      .mission-card__footer {
+        margin-top: auto;
+      }
+    }
+
+    // Carte liée au contact verrouillé sur le radar
+    &--locked {
+      border-color: $accent;
+    }
+  }
+
+  @include reduced-motion {
+    &__body {
+      transition: none;
+    }
+  }
+}
+
+// Ligne repliée : seulement quand le JS est actif (sinon tout reste lisible).
+.js .contact-row:not(.is-open) .mission-card__body {
+  grid-template-rows: 0fr;
+  visibility: hidden;  // retire aussi le contenu masqué de l'ordre de tabulation
+  opacity: 0;
+}
+
+// Métriques : 3 cellules séparées par des traits de 1px.
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-block: 1.25rem;
+  background: $line;
+  border: $border;
+
+  &__item {
+    padding: 0.75rem;
+    background: $bg;
+  }
+
+  &__label {
+    @include label;
+    font-size: 0.625rem;
+  }
+
+  &__value {
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    color: $text-title;
+    overflow-wrap: anywhere;
+  }
+}

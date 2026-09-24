@@ -1,6 +1,28 @@
 // Point d'entrée des styles : uniquement des @use.
 
+// Base
 @use 'base/reset';
 @use 'base/utilities';
 @use 'base/typography';
 @use 'base/grid-background';
+
+// Composants
+@use 'components/button';
+@use 'components/status';
+@use 'components/tag';
+@use 'components/field';
+@use 'components/telemetry';
+@use 'components/radar';
+@use 'components/contact-row';
+@use 'components/mission-card';
+@use 'components/console';
+
+// Sections
+@use 'sections/section';
+@use 'sections/header';
+@use 'sections/hero';
+@use 'sections/missions';
+@use 'sections/systems';
+@use 'sections/journal';
+@use 'sections/contact';
+@use 'sections/footer';

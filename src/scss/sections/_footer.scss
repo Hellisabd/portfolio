@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding-block: 2rem;
+  border-top: $border;
+  @include container;
+
+  p {
+    @include label;
+  }
+
+  @include bp(lg) {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__hash {
+    text-transform: none;  // un hash git est en minuscules
+  }
+
+  &__egg {
+    min-height: $tap-min;
+    padding-inline: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    color: $label;
+    border: 1px dashed $line-strong;
+    transition:
+      color $fast,
+      border-color $fast;
+
+    &:hover {
+      color: $accent;
+      border-color: $accent;
+    }
+  }
+}

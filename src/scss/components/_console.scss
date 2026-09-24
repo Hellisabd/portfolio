@@ -1,0 +1,104 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Console de l'easter egg : un <dialog> ouvert avec showModal().
+.console {
+  width: min(100% - 2rem, 42rem);
+  max-height: calc(100% - 2rem);
+  margin: auto;
+  padding: 0;
+  color: $text;
+  background: $bg;
+  border: 1px solid $line-strong;
+
+  &::backdrop {
+    background: color.change($bg, $alpha: 0.85);
+  }
+
+  &__header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+    border-bottom: $border;
+  }
+
+  &__title {
+    @include label;
+    color: $accent;
+  }
+
+  &__close {
+    min-height: $tap-min;
+    padding-inline: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    color: $label;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__code {
+    margin: 1.25rem;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.75rem;
+    line-height: 1.7;
+    color: $text-muted;
+    background: $surface;
+    border: $border;
+  }
+
+  &__state {
+    margin-inline: 1.25rem;
+    border-top: $border;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 0.5rem;
+    border-bottom: $border;
+
+    dt {
+      @include label;
+    }
+
+    dd {
+      font-size: 0.8125rem;
+      color: $text-title;
+      white-space: pre;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  &__result {
+    margin: 1rem 1.25rem 0;
+    font-family: $font-mono;
+    font-size: 0.875rem;
+    color: $accent;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: 1ch;
+    align-items: center;
+    min-height: $tap-min;
+    margin: 0.5rem 1.25rem 0.75rem;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $accent;
+  }
+}
