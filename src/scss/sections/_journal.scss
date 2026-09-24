@@ -23,8 +23,14 @@
 
     @include bp(md) {
       grid-template-areas: 'date code title status';
-      grid-template-columns: 7rem 8.5rem minmax(0, 1fr) auto;
+      // Colonne de statut de largeur fixe, alignée à gauche : les statuts
+      // forment une colonne propre au lieu d'être collés au bord droit.
+      grid-template-columns: 7rem 8.5rem minmax(0, 1fr) 8rem;
       gap: 1.5rem;
+
+      .status {
+        justify-self: start;
+      }
     }
   }
 
