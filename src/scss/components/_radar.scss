@@ -1,0 +1,404 @@
+@use 'sass:color';
+@use 'sass:math';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Radar des missions (FIG.01).
+// Seul endroit du site où dégradés et lueurs sont autorisés.
+// Mobile et tablette : purement décoratif. lg : interactif (radarLock.js).
+
+// Relèvement de chaque contact, en degrés (voir le tableau des missions).
+$contacts: (
+  msn-001: 28,
+  msn-002: 52,
+  msn-003: 14,
+  msn-004: 72,
+  msn-005: 128,
+  msn-006: 205,
+  msn-007: 242,
+  msn-008: 318,
+);
+
+$glow: drop-shadow(0 0 4px $accent);
+
+// Longueur d'un cercle, pour espacer les tirets des graduations.
+@function circumference($r) {
+  @return 2 * math.$pi * $r;
+}
+
+.radar {
+  // --- Cadre ---
+  &__scope {
+    position: relative;
+    width: 100%;
+    max-width: 43.75rem;  // 700px, la taille du repère du SVG
+    aspect-ratio: 1;
+    margin-inline: auto;
+    // Le faisceau est un carré qui tourne : ses coins dépasseraient du cadre
+    // et créeraient un défilement horizontal sur mobile.
+    overflow: clip;
+
+    @include bp(md) {
+      max-width: 36rem;
+    }
+
+    @include bp(lg) {
+      max-width: 43.75rem;
+    }
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  // --- 1. Cadran : dégradé radial ---
+  &__stop--core {
+    stop-color: $radar-core;
+  }
+
+  &__stop--edge {
+    stop-color: $bg;
+  }
+
+  &__dial {
+    fill: url('#radar-dial-gradient');
+  }
+
+  // --- 2. Lunette et graduations ---
+  &__bezel {
+    fill: none;
+    stroke: $radar-bezel;
+    stroke-width: 40;
+  }
+
+  // Un cercle en pointillés : 1 tiret tous les 3° (120 graduations).
+  &__ticks {
+    fill: none;
+    stroke: $radar-ring;
+    stroke-width: 6;
+    stroke-dasharray: 1 (math.div(circumference(303), 120) - 1);
+
+    // Graduations longues : 1 tiret tous les 15° (24 graduations).
+    &--long {
+      stroke: $radar-blue;
+      stroke-width: 12;
+      stroke-dasharray: 1.5 (math.div(circumference(306), 24) - 1.5);
+    }
+  }
+
+  &__bearings text {
+    font-family: $font-mono;
+    font-size: 12px;
+    text-anchor: middle;
+    dominant-baseline: central;
+    fill: $radar-label;
+  }
+
+  // --- 3. Arc d'horizon ---
+  &__horizon {
+    fill: none;
+    stroke: $radar-spoke;
+    stroke-width: 2;
+  }
+
+  &__horizon-arc {
+    fill: none;
+    stroke: $accent;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 6px $accent);
+  }
+
+  // --- 4. Rayons ---
+  &__spoke {
+    stroke: $radar-spoke;
+    stroke-width: 1;
+
+    &--axis {
+      stroke: $radar-axis;
+    }
+  }
+
+  // --- 5. Anneaux de distance ---
+  &__ring {
+    fill: none;
+    stroke: $radar-ring;
+    stroke-width: 1;
+  }
+
+  &__ring-label,
+  &__sector,
+  &__base {
+    font-family: $font-mono;
+    fill: $label;
+  }
+
+  &__ring-label {
+    font-size: 10px;
+  }
+
+  &__sector {
+    font-size: 12px;
+    letter-spacing: $tracking-label;
+
+    &--end {
+      text-anchor: end;
+    }
+  }
+
+  // --- 6. Faisceau : élément HTML posé sur le cadran (rayon 300 sur 350) ---
+  &__beam {
+    position: absolute;
+    inset: math.percentage(math.div(50, 700));
+    pointer-events: none;
+    background: conic-gradient(
+      transparent 0deg 312deg,
+      color.change($accent, $alpha: 0) 312deg,
+      color.change($accent, $alpha: 0.28) 360deg
+    );
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    animation: radar-sweep $sweep-duration linear infinite;
+
+    // Bord d'attaque : un trait lumineux du centre vers le haut.
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 50%;
+      margin-left: -1px;
+      content: '';
+      background: $accent-hover;
+      filter: $glow;
+    }
+  }
+
+  // --- 7. Contacts ---
+  &__hit {
+    fill: transparent;  // zone de clic de 44px autour du point
+  }
+
+  &__halo {
+    fill: color.change($accent, $alpha: 0.25);
+    filter: $glow;
+  }
+
+  &__dot {
+    fill: $radar-dot;
+    filter: $glow;
+
+    &--unconfirmed {
+      fill: none;
+      stroke: $accent;
+      stroke-width: 1.5;
+      stroke-dasharray: 3 3;
+      animation: status-blink 2.4s ease-in-out infinite;
+    }
+  }
+
+  // Rémanence : le contact s'allume au passage du faisceau puis s'estompe.
+  // Même durée que le balayage, décalée selon le relèvement du contact.
+  &__blip {
+    animation: radar-afterglow $sweep-duration linear infinite backwards;
+  }
+
+  @each $id, $bearing in $contacts {
+    &__contact--#{$id} &__blip {
+      animation-delay: math.div($bearing, 360) * $sweep-duration;
+    }
+  }
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 13px;
+    fill: $text-title;
+
+    &--id {
+      font-size: 10px;
+      fill: $label;
+    }
+
+    &--end {
+      text-anchor: end;
+    }
+  }
+
+  // Crochets de visée : cachés, puis resserrés autour du contact verrouillé.
+  &__brackets {
+    opacity: 0;
+    transition: opacity $fast;
+
+    path {
+      fill: none;
+      stroke: $accent;
+      stroke-width: 2;
+    }
+
+    &.is-locked {
+      opacity: 1;
+    }
+  }
+
+  &__brackets-inner {
+    transform: scale(1.8);
+    transition: transform $fast ease-out;
+
+    .is-locked & {
+      transform: scale(1);
+    }
+  }
+
+  // --- 8. Centre ---
+  &__core {
+    fill: $radar-dot;
+    filter: $glow;
+  }
+
+  &__base {
+    font-size: 10px;
+    text-anchor: middle;
+    letter-spacing: 0.2em;
+  }
+
+  // --- Légende sous le radar ---
+  &__caption {
+    @include label;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  // --- Version décorative (base) : pas de texte, rien de cliquable ---
+  &__bearings,
+  &__ring-label,
+  &__sector,
+  &__label {
+    display: none;
+  }
+
+  &__contact {
+    pointer-events: none;
+  }
+
+  &__panel {
+    display: none;
+  }
+
+  // --- Version interactive (lg) ---
+  @include bp(lg) {
+    &__bearings,
+    &__ring-label,
+    &__sector,
+    &__label {
+      display: inline;
+    }
+
+    &__contact {
+      pointer-events: auto;
+      cursor: pointer;
+      outline: none;  // le focus est montré par les crochets de visée
+
+      &:focus-visible .radar__label {
+        fill: $accent;
+      }
+    }
+
+    &__panel {
+      display: block;
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: $surface;
+      border: $border;
+    }
+
+    &__caption {
+      text-align: left;
+    }
+  }
+
+  // --- Panneau « Contact verrouillé » ---
+  &__panel-title {
+    @include label;
+    margin-bottom: 0.75rem;
+    color: $accent;
+  }
+
+  &__panel-empty {
+    font-size: 0.875rem;
+  }
+
+  // :not([hidden]) : sinon ce display l'emporterait sur l'attribut hidden.
+  &__info:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  &__data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  &__data-row {
+    display: grid;
+    gap: 0.25rem;
+
+    dt {
+      @include label;
+      font-size: 0.625rem;
+    }
+
+    dd {
+      font-size: 0.875rem;
+      color: $text-title;
+    }
+  }
+
+  &__report {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $accent;
+
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+
+  // --- Moins d'animations : radar figé, tous les contacts allumés ---
+  @include reduced-motion {
+    &__beam,
+    &__blip,
+    &__dot--unconfirmed {
+      animation: none;
+    }
+
+    &__brackets,
+    &__brackets-inner {
+      transition: none;
+    }
+  }
+}
+
+@keyframes radar-sweep {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes radar-afterglow {
+  0% {
+    opacity: 1;
+  }
+
+  60%,
+  100% {
+    opacity: 0.3;
+  }
+}
