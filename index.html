@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basile Grosjean — Développeur C/C++ systèmes et back-end</title>
+    <meta name="description" content="Portfolio de Basile Grosjean, développeur C/C++ systèmes et back-end, diplômé de l'École 42, en recherche d'alternance à partir de janvier 2027.">
+    <meta name="theme-color" content="#030B18">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+    <link rel="stylesheet" href="/src/scss/main.scss">
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+      <a class="header__brand" href="#top" aria-label="Basile Grosjean, retour en haut de page">
+        <span class="header__brand-short">B.</span><span class="header__brand-full">BASILE </span>GROSJEAN <span class="header__brand-id">// SYS-01</span>
+      </a>
+
+      <button class="header__toggle" type="button" aria-expanded="false" aria-controls="menu">[ MENU ]</button>
+
+      <div class="header__panel" id="menu">
+        <nav class="header__nav" aria-label="Navigation principale">
+          <ul class="header__list">
+            <li><a class="header__link" href="#missions"><span class="header__num">01</span> Contacts</a></li>
+            <li><a class="header__link" href="#systemes"><span class="header__num">02</span> Systèmes</a></li>
+            <li><a class="header__link" href="#journal"><span class="header__num">03</span> Journal</a></li>
+            <li><a class="header__link" href="#contact"><span class="header__num">04</span> Contact</a></li>
+          </ul>
+        </nav>
+        <a class="header__cv" href="cv-basile-grosjean.pdf" download>CV.PDF <span aria-hidden="true">↓</span></a>
+        <p class="header__status">
+          <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Balayage actif</span>
+          <span class="clock" aria-hidden="true">T+ 00:00:00</span>
+        </p>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Développeur C/C++ · systèmes &amp; back-end</p>
+          <h1 class="hero__title" id="hero-title">Je construis des systèmes qui restent en orbite.</h1>
+          <p class="hero__intro">
+            Diplômé de l'École 42 (Mulhouse), je poursuis en Pre-Master of Science à Epitech.
+            Je cherche une alternance en développement systèmes ou back-end à partir de janvier 2027,
+            au rythme de 4 semaines en entreprise et 2 semaines à l'école.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#missions">Voir les contacts <span aria-hidden="true">→</span></a>
+            <a class="button button--secondary" href="cv-basile-grosjean.pdf" download>CV.PDF <span aria-hidden="true">↓</span></a>
+          </div>
+
+          <dl class="legend">
+            <div class="legend__row">
+              <dt class="legend__label">Secteurs</dt>
+              <dd class="legend__value">C 000–090 · C++ 090–180 · Web / infra 180–270 · Embarqué 270–360</dd>
+            </div>
+            <div class="legend__row">
+              <dt class="legend__label">Distance</dt>
+              <dd class="legend__value">R2 premiers projets → R6 projet final · horizon : en cours</dd>
+            </div>
+            <div class="legend__row">
+              <dt class="legend__label">Base</dt>
+              <dd class="legend__value">Strasbourg · Mulhouse · Belfort</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="radar">
+          <!-- Le SVG du radar et le faisceau arrivent au jour 2 (voir PLAN.md). -->
+          <figcaption class="radar__caption">FIG.01 — Balayage actif · 8 contacts · 7 confirmés</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ TÉLÉMÉTRIE ============ -->
+      <section class="telemetry" aria-label="Télémétrie">
+        <dl class="telemetry__list">
+          <div class="telemetry__cell">
+            <dt class="telemetry__label">Langages</dt>
+            <dd class="telemetry__value">C · C++ · TypeScript</dd>
+          </div>
+          <div class="telemetry__cell">
+            <dt class="telemetry__label">Infra</dt>
+            <dd class="telemetry__value">Docker · Nginx</dd>
+          </div>
+          <div class="telemetry__cell">
+            <dt class="telemetry__label">Réseau</dt>
+            <dd class="telemetry__value">Sockets · HTTP/1.1</dd>
+          </div>
+          <div class="telemetry__cell">
+            <dt class="telemetry__label">Statut</dt>
+            <dd class="telemetry__value">
+              <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Disponible — janv. 2027</span>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ============ 01 CONTACTS (MISSIONS) ============ -->
+      <section class="section missions" id="missions" aria-labelledby="missions-title">
+        <h2 class="section__title" id="missions-title"><span class="section__num">01</span> Contacts</h2>
+        <p class="section__intro">Chaque projet est un contact détecté par le radar : le secteur indique la techno, la distance l'avancement dans le cursus.</p>
+
+        <div class="missions__grid">
+          <!-- Secteur C -->
+          <div class="missions__sector">
+            <h3 class="missions__sector-title">Secteur C · 4 contacts</h3>
+            <ul class="missions__list">
+              <li class="contact-row" id="msn-001">
+                <article class="mission-card" aria-labelledby="msn-001-title">
+                  <h4 class="mission-card__heading" id="msn-001-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-001-body">
+                      <span class="contact-row__name">so_long</span>
+                      <span class="contact-row__id">MSN-001 · Secteur C</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-001-body">
+                    <p class="mission-card__desc">Un jeu 2D en vue de dessus : le joueur ramasse tous les objets puis rejoint la sortie. La carte est vérifiée avant le lancement (bords, chemin valide).</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">MiniLibX</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Validation</dt><dd class="metrics__value">flood fill</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Démo</dt><dd class="metrics__value">jouable [bonus]</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">c</li>
+                        <li class="tag">minilibx</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/so_long">Rapport <span class="visually-hidden">de mission so_long sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+
+              <li class="contact-row" id="msn-002">
+                <article class="mission-card" aria-labelledby="msn-002-title">
+                  <h4 class="mission-card__heading" id="msn-002-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-002-body">
+                      <span class="contact-row__name">Philosophers</span>
+                      <span class="contact-row__id">MSN-002 · Secteur C</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-002-body">
+                    <p class="mission-card__desc">Le problème du dîner des philosophes : chaque philosophe est un thread qui partage des fourchettes avec ses voisins, sans interblocage ni famine.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Threads</dt><dd class="metrics__value">1 / philo</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Synchro</dt><dd class="metrics__value">mutex</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Temps</dt><dd class="metrics__value">gettimeofday</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">c</li>
+                        <li class="tag">pthread</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/Philosopher">Rapport <span class="visually-hidden">de mission Philosophers sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+
+              <li class="contact-row" id="msn-003">
+                <article class="mission-card" aria-labelledby="msn-003-title">
+                  <h4 class="mission-card__heading" id="msn-003-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-003-body">
+                      <span class="contact-row__name">minishell</span>
+                      <span class="contact-row__id">MSN-003 · Secteur C</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-003-body">
+                    <p class="mission-card__desc">Un shell inspiré de bash : analyse de la ligne de commande, pipes, redirections, variables d'environnement, builtins et gestion des signaux.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Builtins</dt><dd class="metrics__value">7</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Signaux</dt><dd class="metrics__value">SIGINT, SIGQUIT</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">c</li>
+                        <li class="tag">unix</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/minishell">Rapport <span class="visually-hidden">de mission minishell sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+
+              <li class="contact-row" id="msn-004">
+                <article class="mission-card" aria-labelledby="msn-004-title">
+                  <h4 class="mission-card__heading" id="msn-004-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-004-body">
+                      <span class="contact-row__name">Eyes-Cube</span>
+                      <span class="contact-row__id">MSN-004 · Secteur C</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-004-body">
+                    <p class="mission-card__desc">Un moteur 3D en raycasting, dans l'esprit de Wolfenstein 3D : la vue à la première personne est calculée à partir d'une carte 2D.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">raycasting DDA</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Bonus</dt><dd class="metrics__value">ennemis, portes</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">c</li>
+                        <li class="tag">minilibx</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/Eyes-Cube">Rapport <span class="visually-hidden">de mission Eyes-Cube sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Secteur C++ -->
+          <div class="missions__sector">
+            <h3 class="missions__sector-title">Secteur C++ · 1 contact</h3>
+            <ul class="missions__list">
+              <li class="contact-row" id="msn-005">
+                <article class="mission-card" aria-labelledby="msn-005-title">
+                  <h4 class="mission-card__heading" id="msn-005-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-005-body">
+                      <span class="contact-row__name">Webserv</span>
+                      <span class="contact-row__id">MSN-005 · Secteur C++</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-005-body">
+                    <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ : toutes les connexions sont gérées par une seule boucle poll(), avec fichier de configuration, méthodes GET, POST, DELETE et CGI.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">poll</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Durée</dt><dd class="metrics__value">1,5 mois</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">c++</li>
+                        <li class="tag">sockets</li>
+                        <li class="tag">poll</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/Webserv">Rapport <span class="visually-hidden">de mission Webserv sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Secteur Web / infra -->
+          <div class="missions__sector">
+            <h3 class="missions__sector-title">Secteur Web / infra · 2 contacts</h3>
+            <ul class="missions__list">
+              <li class="contact-row" id="msn-006">
+                <article class="mission-card" aria-labelledby="msn-006-title">
+                  <h4 class="mission-card__heading" id="msn-006-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-006-body">
+                      <span class="contact-row__name">Inception</span>
+                      <span class="contact-row__id">MSN-006 · Secteur Web / infra</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-006-body">
+                    <p class="mission-card__desc">Une infrastructure Docker Compose : Nginx en TLS, WordPress et MariaDB, chacun dans son conteneur, avec des images construites sans image toute faite.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Conteneurs</dt><dd class="metrics__value">3</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">TLS</dt><dd class="metrics__value">1.2 / 1.3</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Images</dt><dd class="metrics__value">from scratch</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">docker</li>
+                        <li class="tag">nginx</li>
+                        <li class="tag">mariadb</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/Inception">Rapport <span class="visually-hidden">de mission Inception sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+
+              <li class="contact-row" id="msn-007">
+                <article class="mission-card" aria-labelledby="msn-007-title">
+                  <h4 class="mission-card__heading" id="msn-007-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-007-body">
+                      <span class="contact-row__name">Transcendence Bubble-Pong</span>
+                      <span class="contact-row__id">MSN-007 · Secteur Web / infra</span>
+                      <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-007-body">
+                    <p class="mission-card__desc">Un Pong multijoueur en ligne, développé en équipe : parties en temps réel par WebSockets, back-end Fastify et base SQLite.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">4</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Commits</dt><dd class="metrics__value">300+</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Temps réel</dt><dd class="metrics__value">WebSockets</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">typescript</li>
+                        <li class="tag">fastify</li>
+                        <li class="tag">sqlite</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/Transcendence-Bubble-Pong">Rapport <span class="visually-hidden">de mission Transcendence Bubble-Pong sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Secteur Embarqué -->
+          <div class="missions__sector">
+            <h3 class="missions__sector-title">Secteur Embarqué · 1 contact</h3>
+            <ul class="missions__list">
+              <li class="contact-row" id="msn-008">
+                <article class="mission-card" aria-labelledby="msn-008-title">
+                  <h4 class="mission-card__heading" id="msn-008-title">
+                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-008-body">
+                      <span class="contact-row__name">AirQuality</span>
+                      <span class="contact-row__id">MSN-008 · Secteur Embarqué</span>
+                      <span class="status status--unconfirmed"><span class="status__dot" aria-hidden="true"></span>Non confirmé</span>
+                      <span class="contact-row__sign" aria-hidden="true">+</span>
+                    </button>
+                  </h4>
+                  <div class="mission-card__body" id="msn-008-body">
+                    <p class="mission-card__desc">Une station de mesure de la qualité de l'air sur ESP32 : capteurs reliés en I2C et UART, données envoyées vers un back-end Fastify. Projet en cours.</p>
+                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                    <dl class="metrics">
+                      <div class="metrics__item"><dt class="metrics__label">MCU</dt><dd class="metrics__value">ESP32</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Bus</dt><dd class="metrics__value">I2C + UART</dd></div>
+                      <div class="metrics__item"><dt class="metrics__label">Phase</dt><dd class="metrics__value">[x] / 8</dd></div>
+                    </dl>
+                    <div class="mission-card__footer">
+                      <ul class="tags">
+                        <li class="tag">c++</li>
+                        <li class="tag">esp32</li>
+                        <li class="tag">fastify</li>
+                      </ul>
+                      <a class="mission-card__link" href="https://github.com/Hellisabd/AirQuality">Rapport <span class="visually-hidden">de mission AirQuality sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hors portée : l'alternance -->
+          <article class="mission-card mission-card--next" id="msn-009" aria-labelledby="msn-009-title">
+            <p class="mission-card__header">
+              <span class="contact-row__id">MSN-009 · Hors portée</span>
+              <span class="status status--approaching"><span class="status__dot" aria-hidden="true"></span>En approche</span>
+            </p>
+            <h3 class="mission-card__title" id="msn-009-title">Prochaine mission : votre équipe ?</h3>
+            <dl class="metrics">
+              <div class="metrics__item"><dt class="metrics__label">Début</dt><dd class="metrics__value">janv. 2027</dd></div>
+              <div class="metrics__item"><dt class="metrics__label">Rythme</dt><dd class="metrics__value">4 / 2 sem.</dd></div>
+              <div class="metrics__item"><dt class="metrics__label">Zone</dt><dd class="metrics__value">Grand Est</dd></div>
+            </dl>
+            <div class="mission-card__footer">
+              <ul class="tags">
+                <li class="tag">alternance</li>
+              </ul>
+              <a class="mission-card__link" href="#contact">Ouvrir le canal <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 02 SYSTÈMES À BORD ============ -->
+      <section class="section systems" id="systemes" aria-labelledby="systemes-title">
+        <h2 class="section__title" id="systemes-title"><span class="section__num">02</span> Systèmes à bord</h2>
+        <dl class="inventory">
+          <div class="inventory__row">
+            <dt class="inventory__label">Langages</dt>
+            <dd class="inventory__value">C · C++ · JavaScript · TypeScript</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Systèmes</dt>
+            <dd class="inventory__value">UNIX · fork / exec / wait · signaux · descripteurs de fichiers · threads et mutex · gestion mémoire manuelle</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Réseau</dt>
+            <dd class="inventory__value">sockets · HTTP/1.1 · API REST · WebSockets · poll, epoll</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Outils</dt>
+            <dd class="inventory__value">Git · Docker · Node.js · Fastify · SQL · SQLite</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Examens</dt>
+            <dd class="inventory__value">Rank 02 à 06 validés en conditions réelles</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Langues</dt>
+            <dd class="inventory__value">français natif · anglais B1, C1 en compréhension</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ============ 03 JOURNAL DE BORD ============ -->
+      <section class="section journal" id="journal" aria-labelledby="journal-title">
+        <h2 class="section__title" id="journal-title"><span class="section__num">03</span> Journal de bord</h2>
+        <ol class="log">
+          <li class="log__entry">
+            <span class="log__date">2021 – 2022</span>
+            <span class="log__code">UNIV-PSY</span>
+            <span class="log__title">Licence de psychologie, 1re année</span>
+            <span class="status status--done"><span class="status__dot" aria-hidden="true"></span>Terminé</span>
+          </li>
+          <li class="log__entry">
+            <span class="log__date">2023 – 2025</span>
+            <span class="log__code">42-MULHOUSE</span>
+            <span class="log__title">École 42 — certification</span>
+            <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Certifié</span>
+          </li>
+          <li class="log__entry">
+            <span class="log__date">2026 – 2029</span>
+            <span class="log__code">EPITECH</span>
+            <span class="log__title">Pre-Master of Science → Master of Science</span>
+            <span class="status status--unconfirmed"><span class="status__dot" aria-hidden="true"></span>En cours</span>
+          </li>
+          <li class="log__entry">
+            <span class="log__date"><time datetime="2027-01">2027-01</time></span>
+            <span class="log__code">ALTERNANCE</span>
+            <span class="log__title">Recherche d'une entreprise d'accueil</span>
+            <span class="status status--approaching"><span class="status__dot" aria-hidden="true"></span>Recherche</span>
+          </li>
+        </ol>
+
+        <h3 class="journal__subtitle">Hors mission</h3>
+        <ul class="tags journal__hobbies">
+          <li class="tag">handball (6 ans)</li>
+          <li class="tag">escalade (2 ans)</li>
+          <li class="tag">volley-ball</li>
+          <li class="tag">mythologie / fantasy / SF</li>
+          <li class="tag">jeux vidéo</li>
+          <li class="tag">jeux de société</li>
+        </ul>
+      </section>
+
+      <!-- ============ 04 CANAL OUVERT ============ -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <p class="section__eyebrow"><span class="section__num">04</span> Canal ouvert</p>
+        <h2 class="section__title" id="contact-title">Une équipe systèmes ou back-end à renforcer ?</h2>
+
+        <div class="contact__layout">
+          <ul class="contact__links">
+            <li><a class="contact__link" href="mailto:basile.grosjean@outlook.fr"><span class="contact__label">Mail</span> basile.grosjean@outlook.fr</a></li>
+            <li><a class="contact__link" href="https://github.com/Hellisabd"><span class="contact__label">GitHub</span> Hellisabd</a></li>
+            <li><a class="contact__link" href="https://www.linkedin.com/in/basile-grosjean-60b69a280/"><span class="contact__label">LinkedIn</span> basile-grosjean</a></li>
+            <li><a class="contact__link" href="cv-basile-grosjean.pdf" download><span class="contact__label">CV</span> cv-basile-grosjean.pdf</a></li>
+          </ul>
+
+          <form class="form" action="https://formspree.io/f/xxxxxxxx" method="post" aria-labelledby="form-title">
+            <p class="form__header">
+              <span class="form__title" id="form-title">Transmission MSG-001</span>
+              <output class="form__status" aria-live="polite">Prêt</output>
+            </p>
+
+            <div class="field">
+              <label class="field__label" for="form-name">Identifiant</label>
+              <input class="field__input" id="form-name" name="name" type="text" autocomplete="name" placeholder="Nom ou entreprise" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="form-email">Email</label>
+              <input class="field__input" id="form-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="form-message">Message</label>
+              <textarea class="field__input field__input--area" id="form-message" name="message" rows="6" required></textarea>
+            </div>
+
+            <!-- Piège anti-spam : invisible pour un humain, les robots le remplissent. -->
+            <div class="form__trap" aria-hidden="true">
+              <label for="form-gotcha">Ne pas remplir</label>
+              <input id="form-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="button button--primary form__submit" type="submit">Transmettre <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <p class="footer__status">
+        <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Tous systèmes nominaux</span>
+      </p>
+      <p class="footer__copy">© 2026 Basile Grosjean</p>
+      <p class="footer__build">Page [xx] kB · 0 tracker · build [hash]</p>
+      <button class="footer__egg" type="button">[ NE PAS APPUYER ]</button>
+    </footer>
+  </body>
+</html>

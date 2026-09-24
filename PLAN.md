@@ -12,12 +12,12 @@ Roadmap à cocher. Une tâche = un commit. Après chaque tâche : `npm run valid
 
 ## Jour 1 — Socle et structure
 
-- [ ] Initialiser le projet Vite, installer `sass` et `html-validate`, scripts `dev`, `build`, `preview`, `validate`.
-- [ ] Créer l'arborescence `src/scss` (abstracts, base, components, sections) et `src/js/modules`.
-- [ ] `_variables.scss` (tokens), `_mixins.scss` (`bp(md)`, `bp(lg)` en `min-width`).
-- [ ] Base : `_reset`, `_typography` (IBM Plex Mono + Sans), `_grid-background` (grille 48px).
-- [ ] `index.html` complet et sémantique, tout le contenu réel (header, hero, télémétrie, missions, systèmes, journal, contact, footer), sans style.
-- [ ] Validation HTML à zéro erreur.
+- [x] Initialiser le projet Vite, installer `sass` et `html-validate`, scripts `dev`, `build`, `preview`, `validate`.
+- [x] Créer l'arborescence `src/scss` (abstracts, base, components, sections) et `src/js/modules`.
+- [x] `_variables.scss` (tokens), `_mixins.scss` (`bp(md)`, `bp(lg)` en `min-width`).
+- [x] Base : `_reset`, `_typography` (IBM Plex Mono + Sans), `_grid-background` (grille 48px).
+- [x] `index.html` complet et sémantique, tout le contenu réel (header, hero, télémétrie, missions, systèmes, journal, contact, footer), sans style.
+- [x] Validation HTML à zéro erreur.
 
 ## Jour 2 — Mise en page mobile first + radar
 
