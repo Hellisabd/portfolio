@@ -76,13 +76,287 @@
         </div>
 
         <figure class="radar">
-          <!-- Le SVG du radar et le faisceau arrivent au jour 2 (voir PLAN.md). -->
+          <div class="radar__scope">
+            <svg class="radar__svg" viewBox="0 0 700 700" aria-hidden="true">
+              <defs>
+                <radialGradient id="radar-dial-gradient">
+                  <stop class="radar__stop radar__stop--core" offset="0"/>
+                  <stop class="radar__stop radar__stop--edge" offset="1"/>
+                </radialGradient>
+              </defs>
+
+              <!-- 1. Cadran -->
+              <circle class="radar__dial" cx="350" cy="350" r="300"/>
+
+              <!-- 2. Lunette : anneau, graduations (tirets d'un cercle) et relèvements -->
+              <circle class="radar__bezel" cx="350" cy="350" r="320"/>
+              <circle class="radar__ticks" cx="350" cy="350" r="303"/>
+              <circle class="radar__ticks radar__ticks--long" cx="350" cy="350" r="306"/>
+              <g class="radar__bearings">
+                <text x="350" y="24">000</text>
+                <text x="434.4" y="35.1">015</text>
+                <text x="513" y="67.7">030</text>
+                <text x="580.5" y="119.5">045</text>
+                <text x="632.3" y="187">060</text>
+                <text x="664.9" y="265.6">075</text>
+                <text x="676" y="350">090</text>
+                <text x="664.9" y="434.4">105</text>
+                <text x="632.3" y="513">120</text>
+                <text x="580.5" y="580.5">135</text>
+                <text x="513" y="632.3">150</text>
+                <text x="434.4" y="664.9">165</text>
+                <text x="350" y="676">180</text>
+                <text x="265.6" y="664.9">195</text>
+                <text x="187" y="632.3">210</text>
+                <text x="119.5" y="580.5">225</text>
+                <text x="67.7" y="513">240</text>
+                <text x="35.1" y="434.4">255</text>
+                <text x="24" y="350">270</text>
+                <text x="35.1" y="265.6">285</text>
+                <text x="67.7" y="187">300</text>
+                <text x="119.5" y="119.5">315</text>
+                <text x="187" y="67.7">330</text>
+                <text x="265.6" y="35.1">345</text>
+              </g>
+
+              <!-- 3. Arc d'horizon (cyan de 210° à 60°) -->
+              <circle class="radar__horizon" cx="350" cy="350" r="292"/>
+              <path class="radar__horizon-arc" d="M204 602.9 A292 292 0 1 1 602.9 204"/>
+
+              <!-- 4. Rayons tous les 15°, plus marqués sur les 4 axes -->
+              <g class="radar__spokes">
+                <line class="radar__spoke radar__spoke--axis" x1="350" y1="350" x2="350" y2="58"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="425.6" y2="67.9"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="496" y2="97.1"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="556.5" y2="143.5"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="602.9" y2="204"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="632.1" y2="274.4"/>
+                <line class="radar__spoke radar__spoke--axis" x1="350" y1="350" x2="642" y2="350"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="632.1" y2="425.6"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="602.9" y2="496"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="556.5" y2="556.5"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="496" y2="602.9"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="425.6" y2="632.1"/>
+                <line class="radar__spoke radar__spoke--axis" x1="350" y1="350" x2="350" y2="642"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="274.4" y2="632.1"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="204" y2="602.9"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="143.5" y2="556.5"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="97.1" y2="496"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="67.9" y2="425.6"/>
+                <line class="radar__spoke radar__spoke--axis" x1="350" y1="350" x2="58" y2="350"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="67.9" y2="274.4"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="97.1" y2="204"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="143.5" y2="143.5"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="204" y2="97.1"/>
+                <line class="radar__spoke" x1="350" y1="350" x2="274.4" y2="67.9"/>
+              </g>
+
+              <!-- 5. Anneaux de distance R2 à R6 -->
+              <g class="radar__rings">
+                <circle class="radar__ring" cx="350" cy="350" r="70"/>
+                <text class="radar__ring-label" x="355" y="276">R2</text>
+                <circle class="radar__ring" cx="350" cy="350" r="120"/>
+                <text class="radar__ring-label" x="355" y="226">R3</text>
+                <circle class="radar__ring" cx="350" cy="350" r="170"/>
+                <text class="radar__ring-label" x="355" y="176">R4</text>
+                <circle class="radar__ring" cx="350" cy="350" r="215"/>
+                <text class="radar__ring-label" x="355" y="131">R5</text>
+                <circle class="radar__ring" cx="350" cy="350" r="255"/>
+                <text class="radar__ring-label" x="355" y="91">R6</text>
+              </g>
+
+              <!-- Noms des secteurs, au début de chaque quart -->
+              <g class="radar__sectors">
+                <text class="radar__sector" x="387.9" y="80.6">C</text>
+                <text class="radar__sector radar__sector--end" x="619.4" y="387.9">C++</text>
+                <text class="radar__sector" x="312.1" y="619.4">WEB / INFRA</text>
+                <text class="radar__sector" x="80.6" y="312.1">EMBARQUÉ</text>
+              </g>
+
+              <!-- Crochets de visée : déplacés par radarLock.js sur le contact verrouillé -->
+              <g class="radar__brackets">
+                <g class="radar__brackets-inner">
+                  <path d="M-16 -8 V-16 H-8"/>
+                  <path d="M8 -16 H16 V-8"/>
+                  <path d="M16 8 V16 H8"/>
+                  <path d="M-8 16 H-16 V8"/>
+                </g>
+              </g>
+
+              <!-- 7. Contacts : x = 350 + r·sin(relèvement), y = 350 − r·cos(relèvement) -->
+              <a class="radar__contact radar__contact--msn-001" href="#msn-001" tabindex="-1" aria-label="MSN-001, so_long, secteur C, relèvement 028°, distance R2, confirmé">
+                <circle class="radar__hit" cx="382.9" cy="288.2" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="382.9" cy="288.2" r="10"/>
+                  <circle class="radar__dot" cx="382.9" cy="288.2" r="4.5"/>
+                </g>
+                <text class="radar__label radar__label--end" x="370.9" y="287.2">so_long</text>
+                <text class="radar__label radar__label--id radar__label--end" x="370.9" y="300.2">MSN-001</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-002" href="#msn-002" tabindex="-1" aria-label="MSN-002, Philosophers, secteur C, relèvement 052°, distance R3, confirmé">
+                <circle class="radar__hit" cx="444.6" cy="276.1" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="444.6" cy="276.1" r="10"/>
+                  <circle class="radar__dot" cx="444.6" cy="276.1" r="4.5"/>
+                </g>
+                <text class="radar__label" x="456.6" y="275.1">Philosophers</text>
+                <text class="radar__label radar__label--id" x="456.6" y="288.1">MSN-002</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-003" href="#msn-003" tabindex="-1" aria-label="MSN-003, minishell, secteur C, relèvement 014°, distance R3, confirmé">
+                <circle class="radar__hit" cx="379" cy="233.6" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="379" cy="233.6" r="10"/>
+                  <circle class="radar__dot" cx="379" cy="233.6" r="4.5"/>
+                </g>
+                <text class="radar__label" x="391" y="232.6">minishell</text>
+                <text class="radar__label radar__label--id" x="391" y="245.6">MSN-003</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-004" href="#msn-004" tabindex="-1" aria-label="MSN-004, Eyes-Cube, secteur C, relèvement 072°, distance R4, confirmé">
+                <circle class="radar__hit" cx="511.7" cy="297.5" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="511.7" cy="297.5" r="10"/>
+                  <circle class="radar__dot" cx="511.7" cy="297.5" r="4.5"/>
+                </g>
+                <text class="radar__label" x="523.7" y="296.5">Eyes-Cube</text>
+                <text class="radar__label radar__label--id" x="523.7" y="309.5">MSN-004</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-005" href="#msn-005" tabindex="-1" aria-label="MSN-005, Webserv, secteur C++, relèvement 128°, distance R5, confirmé">
+                <circle class="radar__hit" cx="519.4" cy="482.4" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="519.4" cy="482.4" r="10"/>
+                  <circle class="radar__dot" cx="519.4" cy="482.4" r="4.5"/>
+                </g>
+                <text class="radar__label" x="531.4" y="481.4">Webserv</text>
+                <text class="radar__label radar__label--id" x="531.4" y="494.4">MSN-005</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-006" href="#msn-006" tabindex="-1" aria-label="MSN-006, Inception, secteur Web / infra, relèvement 205°, distance R5, confirmé">
+                <circle class="radar__hit" cx="259.1" cy="544.9" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="259.1" cy="544.9" r="10"/>
+                  <circle class="radar__dot" cx="259.1" cy="544.9" r="4.5"/>
+                </g>
+                <text class="radar__label radar__label--end" x="247.1" y="543.9">Inception</text>
+                <text class="radar__label radar__label--id radar__label--end" x="247.1" y="556.9">MSN-006</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-007" href="#msn-007" tabindex="-1" aria-label="MSN-007, Transcendence Bubble-Pong, secteur Web / infra, relèvement 242°, distance R6, confirmé">
+                <circle class="radar__hit" cx="124.8" cy="469.7" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__halo" cx="124.8" cy="469.7" r="10"/>
+                  <circle class="radar__dot" cx="124.8" cy="469.7" r="4.5"/>
+                </g>
+                <text class="radar__label" x="136.8" y="468.7">Transcendence Bubble-Pong</text>
+                <text class="radar__label radar__label--id" x="136.8" y="481.7">MSN-007</text>
+              </a>
+              <a class="radar__contact radar__contact--msn-008" href="#msn-008" tabindex="-1" aria-label="MSN-008, AirQuality, secteur Embarqué, relèvement 318°, distance horizon, non confirmé">
+                <circle class="radar__hit" cx="161.3" cy="140.4" r="22"/>
+                <g class="radar__blip">
+                  <circle class="radar__dot radar__dot--unconfirmed" cx="161.3" cy="140.4" r="7"/>
+                </g>
+                <text class="radar__label" x="173.3" y="139.4">AirQuality</text>
+                <text class="radar__label radar__label--id" x="173.3" y="152.4">MSN-008</text>
+              </a>
+
+              <!-- 8. Centre -->
+              <circle class="radar__core" cx="350" cy="350" r="4"/>
+              <text class="radar__base" x="350" y="372">BASILE</text>
+            </svg>
+            <!-- 6. Faisceau : élément HTML en conic-gradient qui tourne en CSS -->
+            <div class="radar__beam"></div>
+          </div>
+
+          <aside class="radar__panel" aria-labelledby="radar-panel-title">
+            <p class="radar__panel-title" id="radar-panel-title">Contact verrouillé</p>
+            <div class="radar__panel-body" aria-live="polite">
+              <p class="radar__panel-empty">Aucun contact. Survolez un point du radar ou atteignez-le avec Tab.</p>
+              <div class="radar__info" id="info-msn-001" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>so_long</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-001</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>028°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R2</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-001">Rapport <span class="visually-hidden">de mission so_long</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-002" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>Philosophers</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-002</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>052°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R3</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-002">Rapport <span class="visually-hidden">de mission Philosophers</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-003" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>minishell</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-003</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>014°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R3</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-003">Rapport <span class="visually-hidden">de mission minishell</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-004" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>Eyes-Cube</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-004</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>072°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R4</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-004">Rapport <span class="visually-hidden">de mission Eyes-Cube</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-005" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>Webserv</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-005</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>128°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R5</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-005">Rapport <span class="visually-hidden">de mission Webserv</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-006" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>Inception</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-006</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>205°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R5</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-006">Rapport <span class="visually-hidden">de mission Inception</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-007" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>Transcendence Bubble-Pong</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-007</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>242°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>R6</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-007">Rapport <span class="visually-hidden">de mission Transcendence Bubble-Pong</span> <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="radar__info" id="info-msn-008" hidden>
+                <dl class="radar__data">
+                  <div class="radar__data-row"><dt>Contact</dt><dd>AirQuality</dd></div>
+                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-008</dd></div>
+                  <div class="radar__data-row"><dt>Relèvement</dt><dd>318°</dd></div>
+                  <div class="radar__data-row"><dt>Distance</dt><dd>Horizon</dd></div>
+                  <div class="radar__data-row"><dt>Statut</dt><dd>Non confirmé</dd></div>
+                </dl>
+                <a class="radar__report" href="#msn-008">Rapport <span class="visually-hidden">de mission AirQuality</span> <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </aside>
+
           <figcaption class="radar__caption">FIG.01 — Balayage actif · 8 contacts · 7 confirmés</figcaption>
         </figure>
       </section>
 
       <!-- ============ TÉLÉMÉTRIE ============ -->
-      <section class="telemetry" aria-label="Télémétrie">
+      <section class="telemetry reveal" aria-label="Télémétrie">
         <dl class="telemetry__list">
           <div class="telemetry__cell">
             <dt class="telemetry__label">Langages</dt>
@@ -106,7 +380,7 @@
       </section>
 
       <!-- ============ 01 CONTACTS (MISSIONS) ============ -->
-      <section class="section missions" id="missions" aria-labelledby="missions-title">
+      <section class="section missions reveal" id="missions" aria-labelledby="missions-title">
         <h2 class="section__title" id="missions-title"><span class="section__num">01</span> Contacts</h2>
         <p class="section__intro">Chaque projet est un contact détecté par le radar : le secteur indique la techno, la distance l'avancement dans le cursus.</p>
 
@@ -118,7 +392,7 @@
               <li class="contact-row" id="msn-001">
                 <article class="mission-card" aria-labelledby="msn-001-title">
                   <h4 class="mission-card__heading" id="msn-001-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-001-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-001-body">
                       <span class="contact-row__name">so_long</span>
                       <span class="contact-row__id">MSN-001 · Secteur C</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -126,19 +400,21 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-001-body">
-                    <p class="mission-card__desc">Mon premier projet graphique : un jeu 2D en tuiles où le joueur ramasse tous les objets pour ouvrir la sortie. La carte .ber est validée avant le lancement (rectangulaire, fermée par des murs, chemin valide).</p>
-                    <p class="mission-card__desc">Décision clé : un découpage en cinq modules (lecture de la carte, boucle de jeu, rendu, entrées clavier, état de la partie). Bonus : ennemis en patrouille et animations.</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">MLX42</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Validation</dt><dd class="metrics__value">flood fill</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Démo</dt><dd class="metrics__value">jouable [bonus]</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">c</li>
-                        <li class="tag">mlx42</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/so_long">Rapport <span class="visually-hidden">de mission so_long sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Mon premier projet graphique : un jeu 2D en tuiles où le joueur ramasse tous les objets pour ouvrir la sortie. La carte .ber est validée avant le lancement (rectangulaire, fermée par des murs, chemin valide).</p>
+                      <p class="mission-card__desc">Décision clé : un découpage en cinq modules (lecture de la carte, boucle de jeu, rendu, entrées clavier, état de la partie). Bonus : ennemis en patrouille et animations.</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">MLX42</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Validation</dt><dd class="metrics__value">flood fill</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Démo</dt><dd class="metrics__value">jouable [bonus]</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">c</li>
+                          <li class="tag">mlx42</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/so_long">Rapport <span class="visually-hidden">de mission so_long sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -147,7 +423,7 @@
               <li class="contact-row" id="msn-002">
                 <article class="mission-card" aria-labelledby="msn-002-title">
                   <h4 class="mission-card__heading" id="msn-002-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-002-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-002-body">
                       <span class="contact-row__name">Philosophers</span>
                       <span class="contact-row__id">MSN-002 · Secteur C</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -155,19 +431,21 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-002-body">
-                    <p class="mission-card__desc">Le problème du dîner des philosophes : chaque philosophe est un thread qui partage des fourchettes avec ses voisins, sans data race ni interblocage.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Threads</dt><dd class="metrics__value">1 / philo</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Synchro</dt><dd class="metrics__value">mutex</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Temps</dt><dd class="metrics__value">gettimeofday</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">c</li>
-                        <li class="tag">pthread</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/Philosopher">Rapport <span class="visually-hidden">de mission Philosophers sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Le problème du dîner des philosophes : chaque philosophe est un thread qui partage des fourchettes avec ses voisins, sans data race ni interblocage.</p>
+                      <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Threads</dt><dd class="metrics__value">1 / philo</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Synchro</dt><dd class="metrics__value">mutex</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Temps</dt><dd class="metrics__value">gettimeofday</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">c</li>
+                          <li class="tag">pthread</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/Philosopher">Rapport <span class="visually-hidden">de mission Philosophers sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -176,7 +454,7 @@
               <li class="contact-row" id="msn-003">
                 <article class="mission-card" aria-labelledby="msn-003-title">
                   <h4 class="mission-card__heading" id="msn-003-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-003-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-003-body">
                       <span class="contact-row__name">minishell</span>
                       <span class="contact-row__id">MSN-003 · Secteur C</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -184,19 +462,21 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-003-body">
-                    <p class="mission-card__desc">Premier projet de groupe : un shell inspiré de bash, avec pipes, redirections, here-docs, variables d'environnement et gestion des signaux, sans fuite mémoire.</p>
-                    <p class="mission-card__desc">Décision clé : une chaîne en quatre étapes, lexer, parser (arbre syntaxique), expander, puis executor qui crée les processus et renvoie le code de sortie.</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Builtins</dt><dd class="metrics__value">7</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Signaux</dt><dd class="metrics__value">SIGINT, SIGQUIT</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">c</li>
-                        <li class="tag">unix</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/minishell">Rapport <span class="visually-hidden">de mission minishell sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Premier projet de groupe : un shell inspiré de bash, avec pipes, redirections, here-docs, variables d'environnement et gestion des signaux, sans fuite mémoire.</p>
+                      <p class="mission-card__desc">Décision clé : une chaîne en quatre étapes, lexer, parser (arbre syntaxique), expander, puis executor qui crée les processus et renvoie le code de sortie.</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Builtins</dt><dd class="metrics__value">7</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Signaux</dt><dd class="metrics__value">SIGINT, SIGQUIT</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">c</li>
+                          <li class="tag">unix</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/minishell">Rapport <span class="visually-hidden">de mission minishell sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -205,7 +485,7 @@
               <li class="contact-row" id="msn-004">
                 <article class="mission-card" aria-labelledby="msn-004-title">
                   <h4 class="mission-card__heading" id="msn-004-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-004-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-004-body">
                       <span class="contact-row__name">Eyes-Cube</span>
                       <span class="contact-row__id">MSN-004 · Secteur C</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -213,19 +493,21 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-004-body">
-                    <p class="mission-card__desc">Un moteur 3D à la première personne inspiré de Wolfenstein 3D, transformé en vrai jeu avec un objectif : trouver la sortie du labyrinthe.</p>
-                    <p class="mission-card__desc">Décision clé : un rayon lancé par colonne d'écran (DDA), avec correction de l'effet fish-eye. Bonus : ennemis, portes et minimap.</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">raycasting DDA</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Bonus</dt><dd class="metrics__value">ennemis, portes</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">c</li>
-                        <li class="tag">minilibx</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/Eyes-Cube">Rapport <span class="visually-hidden">de mission Eyes-Cube sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Un moteur 3D à la première personne inspiré de Wolfenstein 3D, transformé en vrai jeu avec un objectif : trouver la sortie du labyrinthe.</p>
+                      <p class="mission-card__desc">Décision clé : un rayon lancé par colonne d'écran (DDA), avec correction de l'effet fish-eye. Bonus : ennemis, portes et minimap.</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">raycasting DDA</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Bonus</dt><dd class="metrics__value">ennemis, portes</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">c</li>
+                          <li class="tag">minilibx</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/Eyes-Cube">Rapport <span class="visually-hidden">de mission Eyes-Cube sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -240,7 +522,7 @@
               <li class="contact-row" id="msn-005">
                 <article class="mission-card" aria-labelledby="msn-005-title">
                   <h4 class="mission-card__heading" id="msn-005-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-005-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-005-body">
                       <span class="contact-row__name">Webserv</span>
                       <span class="contact-row__id">MSN-005 · Secteur C++</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -248,20 +530,22 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-005-body">
-                    <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ développé en équipe, configurable comme Nginx : méthodes GET, POST, DELETE, uploads et exécution de scripts CGI.</p>
-                    <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle poll() gère toutes les connexions en I/O non bloquantes.</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">poll</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Durée</dt><dd class="metrics__value">1,5 mois</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">c++</li>
-                        <li class="tag">sockets</li>
-                        <li class="tag">poll</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/Webserv">Rapport <span class="visually-hidden">de mission Webserv sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ développé en équipe, configurable comme Nginx : méthodes GET, POST, DELETE, uploads et exécution de scripts CGI.</p>
+                      <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle poll() gère toutes les connexions en I/O non bloquantes.</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">poll</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Durée</dt><dd class="metrics__value">1,5 mois</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">c++</li>
+                          <li class="tag">sockets</li>
+                          <li class="tag">poll</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/Webserv">Rapport <span class="visually-hidden">de mission Webserv sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -276,7 +560,7 @@
               <li class="contact-row" id="msn-006">
                 <article class="mission-card" aria-labelledby="msn-006-title">
                   <h4 class="mission-card__heading" id="msn-006-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-006-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-006-body">
                       <span class="contact-row__name">Inception</span>
                       <span class="contact-row__id">MSN-006 · Secteur Web / infra</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -284,20 +568,22 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-006-body">
-                    <p class="mission-card__desc">Une infrastructure Docker Compose dans une machine virtuelle : Nginx en TLS, WordPress + php-fpm et MariaDB, chacun dans son conteneur, avec des Dockerfiles écrits sans image toute prête.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Conteneurs</dt><dd class="metrics__value">3</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">TLS</dt><dd class="metrics__value">1.2 / 1.3</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Images</dt><dd class="metrics__value">from scratch</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">docker</li>
-                        <li class="tag">nginx</li>
-                        <li class="tag">mariadb</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/Inception">Rapport <span class="visually-hidden">de mission Inception sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Une infrastructure Docker Compose dans une machine virtuelle : Nginx en TLS, WordPress + php-fpm et MariaDB, chacun dans son conteneur, avec des Dockerfiles écrits sans image toute prête.</p>
+                      <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Conteneurs</dt><dd class="metrics__value">3</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">TLS</dt><dd class="metrics__value">1.2 / 1.3</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Images</dt><dd class="metrics__value">from scratch</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">docker</li>
+                          <li class="tag">nginx</li>
+                          <li class="tag">mariadb</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/Inception">Rapport <span class="visually-hidden">de mission Inception sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -306,7 +592,7 @@
               <li class="contact-row" id="msn-007">
                 <article class="mission-card" aria-labelledby="msn-007-title">
                   <h4 class="mission-card__heading" id="msn-007-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-007-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-007-body">
                       <span class="contact-row__name">Transcendence Bubble-Pong</span>
                       <span class="contact-row__id">MSN-007 · Secteur Web / infra</span>
                       <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
@@ -314,20 +600,22 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-007-body">
-                    <p class="mission-card__desc">Projet final du tronc commun : un Pong en ligne revisité, avec matchmaking, classement, amis, notifications en temps réel et 2FA. Tous les bonus validés, dont un second mini-jeu et un mode solo.</p>
-                    <p class="mission-card__desc">Décision clé : toute la plateforme conteneurisée avec Docker Compose et surveillée par Prometheus et Grafana.</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">4</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Commits</dt><dd class="metrics__value">300+</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Temps réel</dt><dd class="metrics__value">WebSockets</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">typescript</li>
-                        <li class="tag">fastify</li>
-                        <li class="tag">sqlite</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/Transcendence-Bubble-Pong">Rapport <span class="visually-hidden">de mission Transcendence Bubble-Pong sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Projet final du tronc commun : un Pong en ligne revisité, avec matchmaking, classement, amis, notifications en temps réel et 2FA. Tous les bonus validés, dont un second mini-jeu et un mode solo.</p>
+                      <p class="mission-card__desc">Décision clé : toute la plateforme conteneurisée avec Docker Compose et surveillée par Prometheus et Grafana.</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">4</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Commits</dt><dd class="metrics__value">300+</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Temps réel</dt><dd class="metrics__value">WebSockets</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">typescript</li>
+                          <li class="tag">fastify</li>
+                          <li class="tag">sqlite</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/Transcendence-Bubble-Pong">Rapport <span class="visually-hidden">de mission Transcendence Bubble-Pong sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -342,7 +630,7 @@
               <li class="contact-row" id="msn-008">
                 <article class="mission-card" aria-labelledby="msn-008-title">
                   <h4 class="mission-card__heading" id="msn-008-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="false" aria-controls="msn-008-body">
+                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-008-body">
                       <span class="contact-row__name">AirQuality</span>
                       <span class="contact-row__id">MSN-008 · Secteur Embarqué</span>
                       <span class="status status--unconfirmed"><span class="status__dot" aria-hidden="true"></span>Non confirmé</span>
@@ -350,20 +638,22 @@
                     </button>
                   </h4>
                   <div class="mission-card__body" id="msn-008-body">
-                    <p class="mission-card__desc">Une station de mesure de la qualité de l'air sur ESP32 : capteurs reliés en I2C et UART, données envoyées vers un back-end Fastify. Projet en cours.</p>
-                    <p class="mission-card__desc">Décision clé : [à compléter]</p>
-                    <dl class="metrics">
-                      <div class="metrics__item"><dt class="metrics__label">MCU</dt><dd class="metrics__value">ESP32</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Bus</dt><dd class="metrics__value">I2C + UART</dd></div>
-                      <div class="metrics__item"><dt class="metrics__label">Phase</dt><dd class="metrics__value">[x] / 8</dd></div>
-                    </dl>
-                    <div class="mission-card__footer">
-                      <ul class="tags">
-                        <li class="tag">c++</li>
-                        <li class="tag">esp32</li>
-                        <li class="tag">fastify</li>
-                      </ul>
-                      <a class="mission-card__link" href="https://github.com/Hellisabd/AirQuality">Rapport <span class="visually-hidden">de mission AirQuality sur GitHub</span> <span aria-hidden="true">→</span></a>
+                    <div class="mission-card__inner">
+                      <p class="mission-card__desc">Une station de mesure de la qualité de l'air sur ESP32 : capteurs reliés en I2C et UART, données envoyées vers un back-end Fastify. Projet en cours.</p>
+                      <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                      <dl class="metrics">
+                        <div class="metrics__item"><dt class="metrics__label">MCU</dt><dd class="metrics__value">ESP32</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Bus</dt><dd class="metrics__value">I2C + UART</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">Phase</dt><dd class="metrics__value">[x] / 8</dd></div>
+                      </dl>
+                      <div class="mission-card__footer">
+                        <ul class="tags">
+                          <li class="tag">c++</li>
+                          <li class="tag">esp32</li>
+                          <li class="tag">fastify</li>
+                        </ul>
+                        <a class="mission-card__link" href="https://github.com/Hellisabd/AirQuality">Rapport <span class="visually-hidden">de mission AirQuality sur GitHub</span> <span aria-hidden="true">→</span></a>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -394,7 +684,7 @@
       </section>
 
       <!-- ============ 02 SYSTÈMES À BORD ============ -->
-      <section class="section systems" id="systemes" aria-labelledby="systemes-title">
+      <section class="section systems reveal" id="systemes" aria-labelledby="systemes-title">
         <h2 class="section__title" id="systemes-title"><span class="section__num">02</span> Systèmes à bord</h2>
         <dl class="inventory">
           <div class="inventory__row">
@@ -425,7 +715,7 @@
       </section>
 
       <!-- ============ 03 JOURNAL DE BORD ============ -->
-      <section class="section journal" id="journal" aria-labelledby="journal-title">
+      <section class="section journal reveal" id="journal" aria-labelledby="journal-title">
         <h2 class="section__title" id="journal-title"><span class="section__num">03</span> Journal de bord</h2>
         <ol class="log">
           <li class="log__entry">
@@ -466,7 +756,7 @@
       </section>
 
       <!-- ============ 04 CANAL OUVERT ============ -->
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <section class="section contact reveal" id="contact" aria-labelledby="contact-title">
         <p class="section__eyebrow"><span class="section__num">04</span> Canal ouvert</p>
         <h2 class="section__title" id="contact-title">Une équipe systèmes ou back-end à renforcer ?</h2>
 
@@ -486,15 +776,18 @@
 
             <div class="field">
               <label class="field__label" for="form-name">Identifiant</label>
-              <input class="field__input" id="form-name" name="name" type="text" autocomplete="name" placeholder="Nom ou entreprise" required>
+              <input class="field__input" id="form-name" aria-describedby="form-name-error" name="name" type="text" autocomplete="name" placeholder="Nom ou entreprise" required>
+              <p class="field__error" id="form-name-error"></p>
             </div>
             <div class="field">
               <label class="field__label" for="form-email">Email</label>
-              <input class="field__input" id="form-email" name="email" type="email" autocomplete="email" required>
+              <input class="field__input" id="form-email" aria-describedby="form-email-error" name="email" type="email" autocomplete="email" required>
+              <p class="field__error" id="form-email-error"></p>
             </div>
             <div class="field">
               <label class="field__label" for="form-message">Message</label>
-              <textarea class="field__input field__input--area" id="form-message" name="message" rows="6" required></textarea>
+              <textarea class="field__input field__input--area" id="form-message" aria-describedby="form-message-error" name="message" rows="6" required></textarea>
+              <p class="field__error" id="form-message-error"></p>
             </div>
 
             <!-- Piège anti-spam : invisible pour un humain, les robots le remplissent. -->
@@ -515,8 +808,29 @@
         <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Tous systèmes nominaux</span>
       </p>
       <p class="footer__copy">© 2026 Basile Grosjean</p>
-      <p class="footer__build">Page [xx] kB · 0 tracker · build [hash]</p>
-      <button class="footer__egg" type="button">[ NE PAS APPUYER ]</button>
+      <p class="footer__build">Page <span class="footer__weight">[xx]</span> kB · 0 tracker · build <span class="footer__hash">[hash]</span></p>
+      <button class="footer__egg" type="button" aria-haspopup="dialog" aria-controls="console">[ NE PAS APPUYER ]</button>
     </footer>
+
+    <!-- ============ EASTER EGG ============ -->
+    <dialog class="console" id="console" aria-labelledby="console-title">
+      <div class="console__header">
+        <p class="console__title" id="console-title">SYS-42 · strlen.bf</p>
+        <button class="console__close" type="button">[ FERMER ]</button>
+      </div>
+      <pre class="console__code"><code>+[[->,--------------------------------]]
+&lt;[[-]+&lt;]
+&gt;[[&gt;+&lt;-]&gt;&gt;[&lt;]&gt;]
+&lt;&lt;++++++++++++++++++++++++++++++++++++++++++++++++.</code></pre>
+      <dl class="console__state">
+        <div class="console__row"><dt>Entrée</dt><dd class="console__input">"42 "</dd></div>
+        <div class="console__row"><dt>Étape</dt><dd class="console__step">0</dd></div>
+        <div class="console__row"><dt>Instruction</dt><dd class="console__op">—</dd></div>
+        <div class="console__row"><dt>Ruban</dt><dd class="console__tape">—</dd></div>
+        <div class="console__row"><dt>Sortie</dt><dd class="console__output">—</dd></div>
+      </dl>
+      <p class="console__result" aria-live="polite"></p>
+      <a class="console__link" href="https://github.com/Hellisabd/strlen.bf">Source sur GitHub <span aria-hidden="true">→</span></a>
+    </dialog>
   </body>
 </html>
