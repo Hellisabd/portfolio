@@ -1,3 +1,7 @@
 node_modules/
 dist/
 .DS_Store
+
+# Documents sources (CV original avec le numéro de téléphone)
+Basile Grosjean Systemes Embarque.pdf
+competences_projets_42.pdf
