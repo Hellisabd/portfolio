@@ -18,3 +18,34 @@
   text-transform: uppercase;
   color: $label;
 }
+
+// Marges latérales de la page. En lg, le contenu est limité à $container-max
+// mais le fond (bordures, bandes) reste en pleine largeur : on agrandit la marge.
+@mixin container {
+  padding-inline: $gutter;
+
+  @include bp(md) {
+    padding-inline: $gutter-md;
+  }
+
+  @include bp(lg) {
+    padding-inline: max(#{$gutter-lg}, calc((100% - #{$container-max}) / 2 + #{$gutter-lg}));
+  }
+}
+
+// Masque visuellement un élément sans le retirer des lecteurs d'écran.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Règles appliquées quand l'utilisateur demande moins d'animations.
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

@@ -3,6 +3,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;  // les ancres ne passent pas sous le header collant
+
+  @include bp(lg) {
+    scroll-padding-top: 6rem;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;

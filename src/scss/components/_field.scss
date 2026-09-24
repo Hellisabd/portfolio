@@ -1,0 +1,58 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Champ de formulaire : label au-dessus, message d'erreur en dessous.
+.field {
+  display: grid;
+  gap: 0.5rem;
+
+  &__label {
+    @include label;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    font-family: $font-sans;
+    font-size: 1rem;  // 16px minimum : pas de zoom automatique sur iOS
+    color: $text-title;
+    background: $bg;
+    border: 1px solid $line-strong;
+    border-radius: 0;
+    transition: border-color $fast;
+
+    &::placeholder {
+      color: $label;
+    }
+
+    &:focus {
+      border-color: $accent;
+      outline: none;
+    }
+
+    &[aria-invalid='true'] {
+      border-color: $accent-hover;
+      border-style: dashed;
+    }
+
+    &--area {
+      min-height: 9rem;
+      resize: vertical;
+    }
+  }
+
+  &__error {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $accent-hover;
+
+    &::before {
+      content: '// ';
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+}

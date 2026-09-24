@@ -1,11 +1,43 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
 // Classes utilitaires partagées.
 
-// Masque un élément à l'écran tout en le laissant aux lecteurs d'écran.
 .visually-hidden {
+  @include visually-hidden;
+}
+
+// Lien d'évitement : invisible jusqu'à ce qu'il reçoive le focus clavier.
+.skip-link {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  top: -10rem;
+  left: 1rem;
+  z-index: 30;
+  padding: 0.75rem 1rem;
+  font-family: $font-mono;
+  font-size: 0.875rem;
+  color: $bg;
+  background: $accent;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+// Apparition au défilement (reveal.js ajoute .is-visible).
+// Préfixé par .js : sans JavaScript, tout reste visible.
+.js .reveal {
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+
+  &:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+
+// Menu mobile ouvert : la page derrière ne défile plus.
+.menu-open {
   overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }

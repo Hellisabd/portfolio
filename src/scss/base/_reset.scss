@@ -40,3 +40,8 @@ ol {
 a {
   color: inherit;
 }
+
+// L'attribut hidden doit toujours gagner sur un display défini en CSS.
+[hidden] {
+  display: none;
+}

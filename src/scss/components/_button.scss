@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as *;
+
+// Bouton : principal (fond cyan) ou secondaire (contour).
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding-inline: 1.5rem;
+  font-family: $font-mono;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    background-color $fast,
+    border-color $fast,
+    color $fast;
+
+  &--primary {
+    color: $bg;
+    background: $accent;
+
+    &:hover {
+      background: $accent-hover;
+    }
+  }
+
+  &--secondary {
+    color: $text-title;
+    border-color: $line-strong;
+
+    &:hover {
+      color: $accent;
+      border-color: $accent;
+    }
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,65 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Statut : pastille de 8px + texte. Le texte porte l'information,
+// la pastille (aria-hidden) n'est qu'un repère visuel.
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-mono;
+  font-size: 0.6875rem;
+  letter-spacing: $tracking-label;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: $text-title;
+
+  &__dot {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid $accent;
+    border-radius: 50%;  // seule exception aux angles droits
+  }
+
+  // Confirmé / certifié : pastille pleine
+  &--confirmed &__dot {
+    background: $accent;
+  }
+
+  // Non confirmé / en cours : contour qui clignote lentement
+  &--unconfirmed &__dot {
+    animation: status-blink 2.4s ease-in-out infinite;
+  }
+
+  // En approche / recherche : pointillés gris
+  &--approaching {
+    color: $label;
+  }
+
+  &--approaching &__dot {
+    border: 1px dashed $label;
+  }
+
+  // Terminé : pastille grise pleine
+  &--done {
+    color: $label;
+  }
+
+  &--done &__dot {
+    background: $label;
+    border-color: $label;
+  }
+
+  @include reduced-motion {
+    &--unconfirmed &__dot {
+      animation: none;
+    }
+  }
+}
+
+@keyframes status-blink {
+  50% {
+    opacity: 0.2;
+  }
+}
