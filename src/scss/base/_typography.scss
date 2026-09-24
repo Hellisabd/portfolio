@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+html {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $font-sans;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $text;
+}
+
+// Titres, labels et données : toujours en mono.
+h1,
+h2,
+h3,
+h4,
+button,
+dt,
+dd,
+code {
+  font-family: $font-mono;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  line-height: 1.15;
+  color: $text-title;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 1.5rem + 3.2vw, 3.75rem);  // 36px → 60px
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.35rem + 1.7vw, 2.5rem);  // 28px → 40px
+}
+
+p {
+  color: $text-muted;
+}
+
+::selection {
+  background: $accent;
+  color: $bg;
+}
+
+:focus-visible {
+  outline: 1px solid $accent;
+  outline-offset: 3px;
+}

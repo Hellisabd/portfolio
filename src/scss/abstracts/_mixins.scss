@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Mobile first : les styles de base visent le téléphone,
+// ce mixin ajoute des règles à partir d'une largeur minimale.
+// Usage : @include bp(md) { … }
+@mixin bp($name) {
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+// Style commun des labels : mono, petit, majuscules, espacé.
+@mixin label {
+  font-family: $font-mono;
+  font-size: 0.6875rem;  // 11px
+  letter-spacing: $tracking-label;
+  text-transform: uppercase;
+  color: $label;
+}

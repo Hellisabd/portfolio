@@ -1,0 +1,52 @@
+// Tokens du design (source : DA-portfolio-radar.md).
+// Aucune couleur ne doit être écrite en dur ailleurs que dans ce fichier.
+
+// --- Couleurs de l'interface ---
+$bg:           #030B18;
+$surface:      #07152A;
+$grid:         #0A1A31;
+$line:         #15294A;
+$line-strong:  #23426F;
+$text-title:   #EAF4FF;
+$text:         #C8D8EE;
+$text-muted:   #9DB2CF;
+$label:        #7F97BA;
+$accent:       #4FD8FF;  // cyan radar, seul accent
+$accent-hover: #BDF2FF;
+
+// --- Couleurs réservées au radar ---
+$radar-blue:   #2F8CFF;  // graduations
+$radar-ring:   #1A3F78;  // anneaux de distance
+$radar-spoke:  #0F2B55;  // rayons
+$radar-axis:   #2A5CA0;  // rayons des 4 axes
+$radar-bezel:  #0C2448;  // lunette
+$radar-core:   #0B2A55;  // centre du dégradé du cadran
+$radar-label:  #5F87C4;  // relèvements de la lunette
+$radar-dot:    #FFFFFF;  // contacts
+
+// --- Typographie ---
+$font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+$font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+$tracking-label: 0.12em;  // espacement des labels en majuscules
+
+// --- Mise en page ---
+$grid-size:     3rem;     // grille de fond de 48px
+$gutter:        1.5rem;   // marges latérales mobile (24px)
+$gutter-md:     3rem;     // tablette (48px)
+$gutter-lg:     5rem;     // desktop (80px)
+$container-max: 90rem;    // 1440px
+$section-gap:    4rem;    // espace entre sections en mobile (64px)
+$section-gap-lg: 7.5rem;  // en desktop (120px)
+$tap-min:       2.75rem;  // cible tactile minimale (44px)
+$border:        1px solid $line;
+
+// --- Points de rupture (em : suivent le zoom du navigateur) ---
+$breakpoints: (
+  md: 48em,  // 768px
+  lg: 75em,  // 1200px
+);
+
+// --- Mouvement ---
+$sweep-duration: 6s;     // un tour de radar
+$fast:           200ms;  // accordéon, verrouillage

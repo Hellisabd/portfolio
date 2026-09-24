@@ -1,0 +1,6 @@
+// Point d'entrée des styles : uniquement des @use.
+
+@use 'base/reset';
+@use 'base/utilities';
+@use 'base/typography';
+@use 'base/grid-background';

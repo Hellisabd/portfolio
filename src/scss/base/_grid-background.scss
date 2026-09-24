@@ -1,0 +1,12 @@
+@use '../abstracts/variables' as *;
+
+// Grille de fond de 48px aux lignes de 1px.
+// Deux linear-gradient aux arrêts nets dessinent des traits, pas un dégradé visible :
+// la règle « aucun dégradé hors radar » est respectée à l'œil.
+body {
+  background-color: $bg;
+  background-image:
+    linear-gradient($grid 1px, transparent 1px),
+    linear-gradient(90deg, $grid 1px, transparent 1px);
+  background-size: $grid-size $grid-size;
+}
