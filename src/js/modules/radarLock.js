@@ -2,7 +2,7 @@ import { DESKTOP_QUERY } from './breakpoints.js';
 
 // Radar interactif (desktop uniquement).
 // - Bascule décoratif / interactif selon la largeur d'écran.
-// - Survol ou focus d'un contact : crochets de visée, panneau « Contact verrouillé »
+// - Survol ou focus d'un contact : crochets de visée, panneau « Cible verrouillée »
 //   et mise en évidence de la carte de la mission.
 // - Clic (ou Entrée) sur un contact : la fiche du projet se déroule sous le radar.
 export function initRadarLock() {

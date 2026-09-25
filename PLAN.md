@@ -32,7 +32,7 @@ Roadmap à cocher. Une tâche = un commit. Après chaque tâche : `npm run valid
 
 - [x] `mobileMenu` : menu plein écran, Échap, focus piégé, `aria-expanded`.
 - [x] `contactAccordion` : une seule ligne ouverte, 200 ms, `aria-expanded`.
-- [x] `radarLock` (lg) : bascule décoratif / interactif via `matchMedia` (`aria-hidden`, `tabindex`), crochets de visée, panneau « Contact verrouillé », carte mise en évidence.
+- [x] `radarLock` (lg) : bascule décoratif / interactif via `matchMedia` (`aria-hidden`, `tabindex`), crochets de visée, panneau « Cible verrouillée », carte mise en évidence.
 - [x] `missionClock` : horloge `T+`.
 - [x] `reveal` : apparition des sections avec `IntersectionObserver`.
 - [x] `contactForm` : validation, honeypot, envoi Formspree, états prêt / transmission / reçu / échec, `aria-live`.

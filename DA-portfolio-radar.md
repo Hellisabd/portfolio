@@ -71,13 +71,13 @@ Direction artistique du portfolio de **Basile Grosjean**, développeur C/C++ **s
 ### Desktop : radar interactif
 
 - Étiquettes à côté de chaque contact : nom (13px, blanc) + identifiant (10px, gris).
-- Survol ou focus clavier d'un contact : **crochets de visée** qui se resserrent autour, et **panneau « Contact verrouillé »** (nom, ID, relèvement, distance, statut, `RAPPORT →`). La carte correspondante dans la liste est mise en évidence.
+- Survol ou focus clavier d'un contact : **crochets de visée** qui se resserrent autour, et **panneau « Cible verrouillée »** (nom, ID, relèvement, distance, statut, `RAPPORT →`). La carte correspondante dans la liste est mise en évidence.
 - Clic : défilement jusqu'à la carte de la mission.
 - Chaque contact est un vrai lien `<a>` dans le SVG, atteignable au Tab.
 
 ### Mobile : radar purement visuel
 
-- Le radar est **décoratif** (`aria-hidden="true"`), sans étiquettes ni relèvements, en pleine largeur sous le hero, avec la ligne `BALAYAGE ACTIF · 8 CONTACTS · 7 CONFIRMÉS`.
+- Le radar est **décoratif** (`aria-hidden="true"`), sans étiquettes ni relèvements, en pleine largeur sous le hero, avec la ligne `BALAYAGE ACTIF · 8 MISSIONS · 7 CONFIRMÉES`.
 - **Les projets passent directement par une liste** (section 01), jamais par le radar.
 
 ## 5. Motifs de l'interface (hors radar)
@@ -92,13 +92,13 @@ Direction artistique du portfolio de **Basile Grosjean**, développeur C/C++ **s
 
 1. **Header**
    - Mobile (56px) : `B.GROSJEAN // SYS-01` · pastille cyan · `[ MENU ]` (menu plein écran : liens numérotés de 72px, CV, statut + horloge).
-   - Desktop (72px) : `BASILE GROSJEAN // SYS-01` · nav `01 Contacts  02 Systèmes  03 Journal  04 Contact` · `● BALAYAGE ACTIF  T+ 00:42:17`.
-2. **Hero** : surtitre cyan, H1 « J'aime comprendre ce qui se passe sous le capot. », présentation, boutons `VOIR LES CONTACTS →` / `CV.PDF ↓`.
+   - Desktop (72px) : `BASILE GROSJEAN // SYS-01` · nav `01 Missions  02 Systèmes  03 Journal  04 Contact` · `● BALAYAGE ACTIF  T+ 00:42:17`.
+2. **Hero** : surtitre cyan, H1 « J'aime comprendre ce qui se passe sous le capot. », présentation, boutons `VOIR LES MISSIONS →` / `CV.PDF ↓`.
    - Mobile : texte, boutons pleine largeur, puis le radar visuel en pleine largeur.
    - Desktop : texte à gauche avec la légende de lecture (secteurs, distance, base), radar interactif à droite (700px) avec le panneau de verrouillage.
 3. **Bande télémétrie** : LANGAGES · INFRA · RÉSEAU · STATUT (`● Disponible — janv. 2027`). 2×2 en mobile, 4 cellules en desktop.
-4. **01 Contacts** (les missions)
-   - **Mobile : liste en accordéon**, groupée par secteur (`SECTEUR C · 4 contacts`…). Chaque ligne (64px) : point de statut, nom, identifiant, statut, `+`. Déplier une ligne affiche la description, les 3 métriques, les tags et `RAPPORT →`. Puis la carte en pointillés `MSN-009 · HORS PORTÉE — Prochaine mission : votre équipe ?`.
+4. **01 Missions**
+   - **Mobile : liste en accordéon**, groupée par secteur (`SECTEUR C · 4 missions`…). Chaque ligne (64px) : point de statut, nom, identifiant, statut, `+`. Déplier une ligne affiche la description, les 3 métriques, les tags et `RAPPORT →`. Puis la carte en pointillés `MSN-009 · HORS PORTÉE — Prochaine mission : votre équipe ?`.
    - **Desktop : grille de cartes** (3 colonnes, 9 cartes), synchronisée avec le radar. Chaque carte : bandeau `MSN-00X · SECTEUR` + statut, titre, description (problème, solution, décision clé), 3 métriques, tags + `RAPPORT →`.
 5. **02 Systèmes à bord** : inventaire en lignes (langages, systèmes, réseau, outils, langues).
 6. **03 Journal de bord** : parcours au format log, puis `HORS MISSION` (centres d'intérêt).

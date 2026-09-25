@@ -34,10 +34,10 @@ Les maquettes de référence sont dans le canvas de design, section « DA retenu
 
 ### Sections de la page (dans l'ordre)
 
-1. **Header** : `B.GROSJEAN // SYS-01` + menu (mobile) ; `BASILE GROSJEAN // SYS-01` + nav numérotée `01 Contacts  02 Systèmes  03 Journal  04 Contact` + `● BALAYAGE ACTIF  T+ hh:mm:ss` (desktop).
-2. **Hero** : surtitre, H1 « J'aime comprendre ce qui se passe sous le capot. », présentation, boutons `VOIR LES CONTACTS →` et `CV.PDF ↓`, puis le radar (décoratif en mobile, interactif en desktop).
+1. **Header** : `B.GROSJEAN // SYS-01` + menu (mobile) ; `BASILE GROSJEAN // SYS-01` + nav numérotée `01 Missions  02 Systèmes  03 Journal  04 Contact` + `● BALAYAGE ACTIF  T+ hh:mm:ss` (desktop).
+2. **Hero** : surtitre, H1 « J'aime comprendre ce qui se passe sous le capot. », présentation, boutons `VOIR LES MISSIONS →` et `CV.PDF ↓`, puis le radar (décoratif en mobile, interactif en desktop).
 3. **Bande télémétrie** : LANGAGES · INFRA · RÉSEAU · STATUT.
-4. `#missions` — **01 Contacts** : liste en accordéon groupée par secteur (mobile) ou grille de 9 cartes (desktop), puis la mission `MSN-009` hors portée (l'alternance).
+4. `#missions` — **01 Missions** : liste en accordéon groupée par secteur (mobile) ou grille de 9 cartes (desktop), puis la mission `MSN-009` hors portée (l'alternance).
 5. `#systemes` — **02 Systèmes à bord** : inventaire des compétences.
 6. `#journal` — **03 Journal de bord** : parcours au format log, puis « Hors mission ».
 7. `#contact` — **04 Canal ouvert** : liens + formulaire de transmission.
@@ -58,7 +58,7 @@ Les maquettes de référence sont dans le canvas de design, section « DA retenu
 ### Règle clé : sur mobile, le radar est purement visuel
 
 - Sur mobile et tablette, le radar est **décoratif** : `aria-hidden="true"`, pas d'étiquettes, pas de relèvements, aucun élément cliquable. Il sert l'ambiance, pas la navigation.
-- **Les projets passent directement par la liste** de la section 01 : accordéon groupé par secteur (`SECTEUR C · 4 contacts`), lignes de 64px (point de statut, nom, identifiant, statut, `+`), une seule ligne dépliée à la fois, `aria-expanded` sur chaque bouton. Une ligne dépliée affiche description, 3 métriques, tags et `RAPPORT →`.
+- **Les projets passent directement par la liste** de la section 01 : accordéon groupé par secteur (`SECTEUR C · 4 missions`), lignes de 64px (point de statut, nom, identifiant, statut, `+`), une seule ligne dépliée à la fois, `aria-expanded` sur chaque bouton. Une ligne dépliée affiche description, 3 métriques, tags et `RAPPORT →`.
 - En `lg` seulement, le radar devient interactif (contacts cliquables, verrouillage, panneau d'info) et la liste devient une grille de cartes.
 
 ### Autres adaptations
@@ -121,7 +121,7 @@ Typographies : **IBM Plex Mono** (titres, labels, données, boutons, radar) et *
 - **Faisceau** : un élément HTML superposé au SVG, en `conic-gradient` qui tourne via `@keyframes` (un tour en 6 s). Pas de canvas, pas de requestAnimationFrame.
 - **Rémanence** : chaque contact a la même animation d'opacité (6 s) avec un `animation-delay` calculé depuis son relèvement (`relèvement / 360 × 6s`), pour s'allumer au passage du faisceau. Comme les attributs `style` sont interdits dans le HTML, chaque contact porte une classe dédiée (ex. `.radar__contact--msn-005`) et son délai est défini dans le SCSS, généré par une boucle `@each` sur une map `$contacts: (msn-005: 128, …)`.
 - Version mobile : même SVG, étiquettes et relèvements masqués en CSS, `aria-hidden="true"`, contacts non focusables (`tabindex="-1"`). C'est l'état écrit dans le HTML (mobile first, et la page reste correcte sans JS).
-- Version desktop : chaque contact est un `<a href="#msn-00x">` dans le SVG, avec `aria-label` complet. Le module `radarLock` écoute `matchMedia('(min-width: 75em)')` : en `lg` il retire `aria-hidden` et les `tabindex="-1"`, et les remet en dessous. Survol / focus : crochets de visée + panneau « Contact verrouillé » + mise en évidence de la carte liée. Clic (ou Entrée) : le panneau se déroule en fiche complète du projet, copiée depuis la carte de la mission (le texte n'existe qu'une fois dans le HTML) ; Échap, `[ FERMER ]` ou un second clic la replient.
+- Version desktop : chaque contact est un `<a href="#msn-00x">` dans le SVG, avec `aria-label` complet. Le module `radarLock` écoute `matchMedia('(min-width: 75em)')` : en `lg` il retire `aria-hidden` et les `tabindex="-1"`, et les remet en dessous. Survol / focus : crochets de visée + panneau « Cible verrouillée » + mise en évidence de la carte liée. Clic (ou Entrée) : le panneau se déroule en fiche complète du projet, copiée depuis la carte de la mission (le texte n'existe qu'une fois dans le HTML) ; Échap, `[ FERMER ]` ou un second clic la replient.
 
 ### Composants (hors radar)
 
