@@ -297,6 +297,7 @@
                   <div class="radar__data-row"><dt>Distance</dt><dd>R3</dd></div>
                   <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
                 </dl>
+                <p class="radar__summary">Un shell en C inspiré de bash, écrit à deux : pipes, redirections, here-docs, variables d'environnement et signaux.</p>
                 <a class="radar__report" href="#msn-003">Rapport <span class="visually-hidden">de mission minishell</span> <span aria-hidden="true">→</span></a>
               </div>
               <div class="radar__info" id="info-msn-004" hidden>
@@ -480,8 +481,8 @@
                   </h4>
                   <div class="mission-card__body" id="msn-003-body">
                     <div class="mission-card__inner">
-                      <p class="mission-card__desc">Premier projet de groupe : un shell inspiré de bash, avec pipes, redirections, here-docs, variables d'environnement et gestion des signaux, sans fuite mémoire.</p>
-                      <p class="mission-card__desc">Décision clé : une chaîne en quatre étapes, lexer, parser (arbre syntaxique), expander, puis executor qui crée les processus et renvoie le code de sortie.</p>
+                      <p class="mission-card__desc">Premier projet de groupe : un shell inspiré de bash, avec prompt et historique, recherche des exécutables dans le PATH, guillemets, redirections, here-docs, pipes, variables d'environnement, $? et les 7 builtins demandés, sans fuite mémoire.</p>
+                      <p class="mission-card__desc">Décision clé : une chaîne en quatre étapes (lexer, expansion, parser, executor) qui produit une liste de commandes, une par étape du pipeline ; chacune tourne dans son propre processus, reliée aux autres par des pipes (un builtin seul reste dans le shell, pour que cd ou export le modifient). Une seule variable globale, écrite uniquement par les gestionnaires de signaux.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Builtins</dt><dd class="metrics__value">7</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">Signaux</dt><dd class="metrics__value">SIGINT, SIGQUIT</dd></div>
