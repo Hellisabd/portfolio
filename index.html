@@ -319,6 +319,7 @@
                   <div class="radar__data-row"><dt>Distance</dt><dd>R5</dd></div>
                   <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
                 </dl>
+                <p class="radar__summary">Un serveur HTTP/1.1 en C++98, écrit à trois : site statique, uploads, CGI Python et sessions, dans une seule boucle epoll non bloquante.</p>
                 <a class="radar__report" href="#msn-005">Rapport <span class="visually-hidden">de mission Webserv</span> <span aria-hidden="true">→</span></a>
               </div>
               <div class="radar__info" id="info-msn-006" hidden>
@@ -549,8 +550,8 @@
                   </h4>
                   <div class="mission-card__body" id="msn-005-body">
                     <div class="mission-card__inner">
-                      <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ développé en équipe, configurable comme Nginx : méthodes GET, POST, DELETE, uploads et exécution de scripts CGI.</p>
-                      <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle epoll() gère toutes les connexions en I/O non bloquantes.</p>
+                      <p class="mission-card__desc">Un serveur HTTP/1.1 en C++98 écrit à trois, configuré par un fichier inspiré de Nginx : plusieurs ports, méthodes GET, POST et DELETE par route, redirections, pages d'erreur et taille maximale du corps. Il sert un site statique, gère l'upload et la suppression de fichiers, exécute des scripts CGI Python et garde une session par cookie.</p>
+                      <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle epoll gère toutes les connexions en I/O non bloquantes. Chaque client garde son propre état, pour qu'une requête puisse arriver en plusieurs morceaux, et le CGI tourne dans un processus surveillé sans bloquer la boucle.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">epoll</dd></div>
