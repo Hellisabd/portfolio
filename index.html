@@ -330,6 +330,7 @@
                   <div class="radar__data-row"><dt>Distance</dt><dd>R5</dd></div>
                   <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
                 </dl>
+                <p class="radar__summary">Une infrastructure Docker de trois conteneurs construits à la main : NGINX en HTTPS, WordPress avec php-fpm et MariaDB.</p>
                 <a class="radar__report" href="#msn-006">Rapport <span class="visually-hidden">de mission Inception</span> <span aria-hidden="true">→</span></a>
               </div>
               <div class="radar__info" id="info-msn-007" hidden>
@@ -588,8 +589,8 @@
                   </h4>
                   <div class="mission-card__body" id="msn-006-body">
                     <div class="mission-card__inner">
-                      <p class="mission-card__desc">Une infrastructure Docker Compose dans une machine virtuelle : Nginx en TLS, WordPress + php-fpm et MariaDB, chacun dans son conteneur, avec des Dockerfiles écrits sans image toute prête.</p>
-                      <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                      <p class="mission-card__desc">Une infrastructure Docker Compose dans une machine virtuelle : NGINX, seul point d'entrée en HTTPS (TLS 1.2 / 1.3), WordPress + php-fpm et MariaDB, chacun dans son conteneur, avec des Dockerfiles écrits à partir d'images Debian, sans image toute prête. Les données du site et de la base sont persistées sur l'hôte.</p>
+                      <p class="mission-card__desc">Décision clé : une installation sans intervention, où WordPress est installé et configuré automatiquement avec wp-cli, et un Makefile qui pilote toute la stack (construction, logs, arrêt, nettoyage). Mise à jour en 2026 : passage de Debian bullseye, plus maintenue, à bookworm.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Conteneurs</dt><dd class="metrics__value">3</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">TLS</dt><dd class="metrics__value">1.2 / 1.3</dd></div>
