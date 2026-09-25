@@ -547,17 +547,17 @@
                   <div class="mission-card__body" id="msn-005-body">
                     <div class="mission-card__inner">
                       <p class="mission-card__desc">Un serveur HTTP/1.1 en C++ développé en équipe, configurable comme Nginx : méthodes GET, POST, DELETE, uploads et exécution de scripts CGI.</p>
-                      <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle poll() gère toutes les connexions en I/O non bloquantes.</p>
+                      <p class="mission-card__desc">Décision clé : une architecture événementielle sans thread, où une seule boucle epoll() gère toutes les connexions en I/O non bloquantes.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
-                        <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">poll</dd></div>
+                        <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">epoll</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">Durée</dt><dd class="metrics__value">1,5 mois</dd></div>
                       </dl>
                       <div class="mission-card__footer">
                         <ul class="tags">
                           <li class="tag">c++</li>
                           <li class="tag">sockets</li>
-                          <li class="tag">poll</li>
+                          <li class="tag">epoll</li>
                         </ul>
                         <a class="mission-card__link" href="https://github.com/Hellisabd/Webserv">Rapport <span class="visually-hidden">de mission Webserv sur GitHub</span> <span aria-hidden="true">→</span></a>
                       </div>
@@ -713,7 +713,7 @@
           </div>
           <div class="inventory__row">
             <dt class="inventory__label">Réseau</dt>
-            <dd class="inventory__value">sockets · HTTP/1.1 · API REST · WebSockets · poll, epoll</dd>
+            <dd class="inventory__value">sockets · HTTP/1.1 · API REST · WebSockets · epoll</dd>
           </div>
           <div class="inventory__row">
             <dt class="inventory__label">Outils</dt>
