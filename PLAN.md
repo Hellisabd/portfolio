@@ -52,7 +52,9 @@ Roadmap à cocher. Une tâche = un commit. Après chaque tâche : `npm run valid
 
 ## Jour 4 — Bonus (seulement si le cœur est validé)
 
-- [ ] so_long compilé en WebAssembly (Emscripten), jouable depuis le rapport de MSN-001.
+- [x] so_long compilé en WebAssembly (Emscripten), jouable depuis la carte MSN-001 (bouton JOUER, desktop).
+- [ ] Tester le jeu dans un vrai navigateur (fluidité avec GPU).
+- [ ] Adapter la DA du jeu (assets) à celle du site.
 - [ ] Pages « rapport » détaillées pour les missions.
 
 ## V2 (après le rendu)

@@ -170,22 +170,28 @@ portfolio/
 ├── CLAUDE.md
 ├── PLAN.md                  # roadmap à cocher
 ├── index.html
+├── game.html                # page du jeu so_long (chargée dans une iframe)
 ├── package.json
 ├── vite.config.js
+├── scripts/
+│   └── build-game.sh        # npm run build:game : compile so_long en WebAssembly
+├── so_long/                 # dépôt so_long (git à part, ignoré), branche web
 ├── public/
 │   ├── cv-basile-grosjean.pdf
 │   ├── casts/               # enregistrements asciinema
-│   └── games/               # build WebAssembly de so_long (bonus)
+│   └── games/so_long/       # build WebAssembly de so_long (.js, .wasm, .data)
 └── src/
     ├── scss/
     │   ├── main.scss        # uniquement des @use
+    │   ├── game.scss        # styles de game.html
     │   ├── abstracts/       # _variables, _mixins
     │   ├── base/            # _reset, _utilities, _typography, _grid-background
-    │   ├── components/      # _button, _status, _radar, _contact-row, _mission-card, _field, _tag, _telemetry, _console
-    │   └── sections/        # _section, _header, _hero, _missions, _systems, _journal, _contact, _footer
+    │   ├── components/      # _button, _status, _radar, _contact-row, _mission-card, _field, _tag, _telemetry, _console, _game-window
+    │   └── sections/        # _section, _header, _hero, _missions, _systems, _journal, _contact, _footer, _game
     └── js/
         ├── main.js          # point d'entrée : importe et initialise les modules
-        └── modules/         # breakpoints, mobileMenu, missionClock, radarLock, contactAccordion, reveal, contactForm, easterEgg
+        ├── game.js          # page du jeu : charge so_long.js (Emscripten)
+        └── modules/         # breakpoints, mobileMenu, missionClock, radarLock, contactAccordion, reveal, contactForm, easterEgg, gameWindow
 ```
 
 ## Conventions
@@ -222,7 +228,8 @@ portfolio/
 npm run dev        # serveur de développement
 npm run build      # build de production dans dist/
 npm run preview    # prévisualiser le build
-npm run validate   # html-validate sur index.html
+npm run validate   # html-validate sur index.html et game.html
+npm run build:game # recompile so_long (Emscripten dans ~/emsdk) vers public/games/so_long/
 ```
 
 ## Méthode de travail
