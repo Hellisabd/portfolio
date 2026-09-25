@@ -4,7 +4,7 @@
 
 // Fenêtre de jeu so_long : <dialog> ouvert avec showModal(), iframe carrée.
 .game-window {
-  width: min(100% - 2rem, 48rem);
+  width: min(100% - 2rem, 66rem);
   max-height: calc(100% - 2rem);
   margin: auto;
   padding: 0;
@@ -30,12 +30,8 @@
     color: $accent;
   }
 
-  &__hint {
-    @include label;
-    margin-left: auto;  // pousse l'aide et le bouton à droite
-  }
-
   &__close {
+    margin-left: auto;  // pousse le bouton à droite
     min-height: $tap-min;
     padding-inline: 1rem;
     font-size: 0.75rem;
@@ -47,6 +43,12 @@
     }
   }
 
+  // Jeu à gauche, règles à droite.
+  &__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+  }
+
   // Carré qui tient dans la hauteur de l'écran, sous l'en-tête.
   &__frame {
     display: block;
@@ -54,5 +56,76 @@
     max-height: calc(100vh - 6rem);
     aspect-ratio: 1;
     border: 0;
+  }
+
+  // --- Règles ---
+  &__rules {
+    padding: 1.25rem;
+    overflow-y: auto;
+    border-left: $border;
+  }
+
+  &__rules-title {
+    @include label;
+    margin-bottom: 0.75rem;
+    color: $accent;
+
+    &:not(:first-child) {
+      margin-top: 1.75rem;
+    }
+  }
+
+  &__steps,
+  &__warnings {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  // Étapes numérotées 01, 02, 03 en cyan, comme les sections du site.
+  &__steps {
+    counter-reset: step;
+  }
+
+  &__step,
+  &__warning {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $text;
+  }
+
+  &__step {
+    counter-increment: step;
+
+    &::before {
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      line-height: 1.75;
+      color: $accent;
+      content: counter(step, decimal-leading-zero);
+    }
+  }
+
+  &__warning::before {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    line-height: 1.75;
+    color: $accent-hover;
+    content: '//';
+  }
+
+  &__keys {
+    font-size: 0.875rem;
+    line-height: 2;
+    color: $text;
+
+    kbd {
+      padding: 0.125rem 0.375rem;
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      color: $text-title;
+      border: 1px solid $line-strong;
+    }
   }
 }

@@ -849,11 +849,31 @@
     <dialog class="game-window" id="game" aria-labelledby="game-title">
       <div class="game-window__header">
         <p class="game-window__title" id="game-title">MSN-001 · so_long</p>
-        <p class="game-window__hint">W A S D : se déplacer</p>
         <button class="game-window__close" type="button">[ FERMER ]</button>
       </div>
-      <!-- La page du jeu n'est chargée qu'à l'ouverture (gameWindow.js). -->
-      <iframe class="game-window__frame" title="Jeu so_long"></iframe>
+      <div class="game-window__body">
+        <!-- La page du jeu n'est chargée qu'à l'ouverture (gameWindow.js). -->
+        <iframe class="game-window__frame" title="Jeu so_long"></iframe>
+
+        <!-- Règles du jeu, tirées du code C (check_collectible, count_coll). -->
+        <div class="game-window__rules">
+          <p class="game-window__rules-title">Objectif</p>
+          <ol class="game-window__steps">
+            <li class="game-window__step">Ramasser l'eau bénite et l'épée.</li>
+            <li class="game-window__step">Vaincre la créature jaune (eau bénite), puis le loup (eau bénite + épée).</li>
+            <li class="game-window__step">Rejoindre la sortie : elle apparaît quand tout est fait.</li>
+          </ol>
+
+          <p class="game-window__rules-title">Attention</p>
+          <ul class="game-window__warnings">
+            <li class="game-window__warning">Toucher un ennemi sans le bon objet : mission échouée.</li>
+            <li class="game-window__warning">100 déplacements maximum.</li>
+          </ul>
+
+          <p class="game-window__rules-title">Commandes</p>
+          <p class="game-window__keys"><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> se déplacer · <kbd>Échap</kbd> quitter</p>
+        </div>
+      </div>
     </dialog>
   </body>
 </html>
