@@ -186,5 +186,5 @@ Hors mission : handball (6 ans), escalade (2 ans), volley-ball, mythologie / fan
 - Email : basile.grosjean@outlook.fr
 - GitHub : https://github.com/Hellisabd
 - LinkedIn : https://www.linkedin.com/in/basile-grosjean-60b69a280/
-- CV : `cv-basile-grosjean.pdf`
+- CV : `basile-grosjean-CV.pdf`
 - Easter egg : https://github.com/Hellisabd/strlen.bf

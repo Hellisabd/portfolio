@@ -177,7 +177,7 @@ portfolio/
 │   └── build-game.sh        # npm run build:game : compile so_long en WebAssembly
 ├── so_long/                 # dépôt so_long (git à part, ignoré), branche web
 ├── public/
-│   ├── cv-basile-grosjean.pdf
+│   ├── basile-grosjean-CV.pdf
 │   ├── casts/               # enregistrements asciinema
 │   └── games/so_long/       # build WebAssembly de so_long (.js, .wasm, .data)
 └── src/
