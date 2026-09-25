@@ -17,7 +17,7 @@ document.addEventListener('keydown', (event) => {
 import(/* @vite-ignore */ moduleUrl)
   .then(({ default: createSoLong }) => createSoLong({
     canvas,
-    arguments: ['map/map_file.ber'],  // équivalent de ./so_long map/map_file.ber
+    arguments: ['map/map_web.ber'],  // équivalent de ./so_long map/map_web.ber
     // Sans ça, so_long.data (assets + carte) serait cherché à la racine du site
     // au lieu d'à côté de so_long.js.
     locateFile: (file) => new URL(file, moduleUrl).href,
