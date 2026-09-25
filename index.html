@@ -341,6 +341,7 @@
                   <div class="radar__data-row"><dt>Distance</dt><dd>R6</dd></div>
                   <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
                 </dl>
+                <p class="radar__summary">Projet final du tronc commun, à quatre : un Pong en ligne en temps réel, avec matchmaking, classement et 2FA, réparti en services Docker autour d'un back-end Fastify.</p>
                 <a class="radar__report" href="#msn-007">Rapport <span class="visually-hidden">de mission Transcendence Bubble-Pong</span> <span aria-hidden="true">→</span></a>
               </div>
               <div class="radar__info" id="info-msn-008" hidden>
@@ -621,8 +622,8 @@
                   </h4>
                   <div class="mission-card__body" id="msn-007-body">
                     <div class="mission-card__inner">
-                      <p class="mission-card__desc">Projet final du tronc commun : un Pong en ligne revisité, avec matchmaking, classement, amis, notifications en temps réel et 2FA. Tous les bonus validés, dont un second mini-jeu et un mode solo.</p>
-                      <p class="mission-card__desc">Ma part : le back-end Fastify et son API REST, le temps réel par WebSockets, l'authentification (JWT, cookies sécurisés, 2FA), la base SQLite et la conteneurisation Docker.</p>
+                      <p class="mission-card__desc">Projet final du tronc commun, à quatre : un Pong en ligne revisité, avec matchmaking, tournois à 4, classement, amis, notifications en temps réel, 2FA et jeu sur mobile. 7 modules majeurs et 5 mineurs validés, pour 7 majeurs requis, dont un second mini-jeu et un mode solo. L'application est découpée en sept services Docker (NGINX, front, pong, second jeu, mode solo, utilisateurs, matchmaking), plus le monitoring.</p>
+                      <p class="mission-card__desc">Ma part : tout sauf le monitoring et le rendu graphique des jeux. Le back-end Fastify et son API REST, le temps réel par WebSockets, le matchmaking, l'authentification (JWT, cookies sécurisés, 2FA), la base SQLite, l'interface et la conteneurisation Docker.</p>
                       <p class="mission-card__desc">Décision clé : déplacer la logique du jeu, d'abord codée dans le navigateur, vers le back-end, puis faire dialoguer les conteneurs par des API. Ce sont les deux parties les plus difficiles du projet.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">4</dd></div>
