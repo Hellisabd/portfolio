@@ -13,7 +13,7 @@ function gitHash() {
 }
 
 // Plugin maison : au build, remplace [xx] par le poids de la page (HTML + CSS + JS,
-// sans le CV ni les polices Google) et [hash] par le hash du commit.
+// sans le CV, les polices Google ni le jeu so_long) et [hash] par le hash du commit.
 function buildInfo() {
   return {
     name: 'build-info',
@@ -22,7 +22,11 @@ function buildInfo() {
     writeBundle(options, bundle) {
       const htmlPath = path.join(options.dir, 'index.html');
       const size = (file) => Buffer.byteLength(file.type === 'chunk' ? file.code : file.source);
-      const assets = Object.values(bundle).filter((file) => /\.(css|js)$/.test(file.fileName));
+      // Les fichiers de la page du jeu (entrée « game ») ne comptent pas : ils ne se
+      // chargent que si on lance la partie.
+      const assets = Object.values(bundle).filter(
+        (file) => /\.(css|js)$/.test(file.fileName) && !file.fileName.startsWith('assets/game-'),
+      );
       const html = readFileSync(htmlPath, 'utf8');
       const bytes = Buffer.byteLength(html) + assets.reduce((total, file) => total + size(file), 0);
 
@@ -40,4 +44,13 @@ export default defineConfig({
   // Chemins relatifs : le build fonctionne quel que soit le dossier d'hébergement.
   base: './',
   plugins: [buildInfo()],
+  build: {
+    // Deux pages : le portfolio et la page du jeu (chargée dans une iframe).
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        game: 'game.html',
+      },
+    },
+  },
 });

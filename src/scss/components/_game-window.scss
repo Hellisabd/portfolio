@@ -1,0 +1,58 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Fenêtre de jeu so_long : <dialog> ouvert avec showModal(), iframe carrée.
+.game-window {
+  width: min(100% - 2rem, 48rem);
+  max-height: calc(100% - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  color: $text;
+  background: $bg;
+  border: 1px solid $line-strong;
+
+  &::backdrop {
+    background: color.change($bg, $alpha: 0.9);
+  }
+
+  &__header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+    border-bottom: $border;
+  }
+
+  &__title {
+    @include label;
+    color: $accent;
+  }
+
+  &__hint {
+    @include label;
+    margin-left: auto;  // pousse l'aide et le bouton à droite
+  }
+
+  &__close {
+    min-height: $tap-min;
+    padding-inline: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    color: $label;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  // Carré qui tient dans la hauteur de l'écran, sous l'en-tête.
+  &__frame {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 6rem);
+    aspect-ratio: 1;
+    border: 0;
+  }
+}

@@ -5,3 +5,6 @@ dist/
 # Documents sources (CV original avec le numéro de téléphone)
 Basile Grosjean Systemes Embarque.pdf
 competences_projets_42.pdf
+
+# Dépôt so_long (git à part) : seul son build web est copié dans public/
+so_long/

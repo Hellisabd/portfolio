@@ -419,6 +419,10 @@
                         <div class="metrics__item"><dt class="metrics__label">Validation</dt><dd class="metrics__value">flood fill</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">Démo</dt><dd class="metrics__value">jouable [bonus]</dd></div>
                       </dl>
+                      <p class="mission-card__play">
+                        <button class="button button--secondary mission-card__play-button" type="button" aria-haspopup="dialog" aria-controls="game">Jouer <span aria-hidden="true">→</span></button>
+                        <span class="mission-card__play-note">Démo jouable sur ordinateur, au clavier (W A S D).</span>
+                      </p>
                       <div class="mission-card__footer">
                         <ul class="tags">
                           <li class="tag">c</li>
@@ -839,6 +843,17 @@
       </dl>
       <p class="console__result" aria-live="polite"></p>
       <a class="console__link" href="https://github.com/Hellisabd/strlen.bf">Source sur GitHub <span aria-hidden="true">→</span></a>
+    </dialog>
+
+    <!-- ============ JEU so_long (MSN-001) ============ -->
+    <dialog class="game-window" id="game" aria-labelledby="game-title">
+      <div class="game-window__header">
+        <p class="game-window__title" id="game-title">MSN-001 · so_long</p>
+        <p class="game-window__hint">W A S D : se déplacer</p>
+        <button class="game-window__close" type="button">[ FERMER ]</button>
+      </div>
+      <!-- La page du jeu n'est chargée qu'à l'ouverture (gameWindow.js). -->
+      <iframe class="game-window__frame" title="Jeu so_long"></iframe>
     </dialog>
   </body>
 </html>

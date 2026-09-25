@@ -51,6 +51,30 @@
     }
   }
 
+  // --- Démo jouable (so_long) : bouton en desktop, simple mention sinon ---
+  &__play {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  // Le jeu se joue au clavier : pas de bouton sur mobile et tablette.
+  &__play-button {
+    display: none;
+
+    @include bp(lg) {
+      display: flex;
+    }
+  }
+
+  &__play-note {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $label;
+  }
+
   // --- MSN-009 : la prochaine mission, hors portée ---
   &--next {
     padding: 1.25rem;

@@ -5,6 +5,7 @@ import { initRadarLock } from './modules/radarLock.js';
 import { initReveal } from './modules/reveal.js';
 import { initContactForm } from './modules/contactForm.js';
 import { initEasterEgg } from './modules/easterEgg.js';
+import { initGameWindow } from './modules/gameWindow.js';
 
 // Signale au CSS que le JavaScript est actif : les styles qui en dépendent
 // (menu repliable, accordéon, apparitions) sont préfixés par .js.
@@ -17,3 +18,4 @@ initRadarLock();
 initReveal();
 initContactForm();
 initEasterEgg();
+initGameWindow();
