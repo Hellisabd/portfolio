@@ -245,7 +245,7 @@ Ne commence jamais un bonus tant que le cœur n'est pas terminé et validé.
 
 Le contenu de référence est le CV de Basile et son relevé de projets. **Ne jamais inventer d'information ni de chiffre** : une métrique inconnue devient un emplacement `[xx]`. Les métriques sont des faits vérifiables (taille d'équipe, nombre de commits, protocole, nombre de conteneurs…).
 
-Le numéro de téléphone n'apparaît pas sur le site : seulement l'email, la zone géographique, LinkedIn, GitHub et le CV en PDF.
+Le numéro de téléphone n'apparaît pas dans la page : seulement l'email, la zone géographique, LinkedIn, GitHub et le CV en PDF. Le CV PDF téléchargeable, lui, contient le numéro (choix assumé, pour garder un CV propre).
 
 ### Missions
 
