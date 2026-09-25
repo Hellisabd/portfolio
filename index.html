@@ -286,6 +286,7 @@
                   <div class="radar__data-row"><dt>Distance</dt><dd>R3</dd></div>
                   <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
                 </dl>
+                <p class="radar__summary">Le dîner des philosophes en C : un thread par philosophe, un mutex par fourchette, et un superviseur qui détecte une mort en quelques millisecondes.</p>
                 <a class="radar__report" href="#msn-002">Rapport <span class="visually-hidden">de mission Philosophers</span> <span aria-hidden="true">→</span></a>
               </div>
               <div class="radar__info" id="info-msn-003" hidden>
@@ -306,6 +307,7 @@
                   <div class="radar__data-row"><dt>Distance</dt><dd>R4</dd></div>
                   <div class="radar__data-row"><dt>Statut</dt><dd>Confirmé</dd></div>
                 </dl>
+                <p class="radar__summary">Un moteur de raycasting en C inspiré de Wolfenstein 3D, devenu un labyrinthe d'horreur : trouver la sortie avant que la créature ne vous rattrape.</p>
                 <a class="radar__report" href="#msn-004">Rapport <span class="visually-hidden">de mission Eyes-Cube</span> <span aria-hidden="true">→</span></a>
               </div>
               <div class="radar__info" id="info-msn-005" hidden>
@@ -447,8 +449,8 @@
                   </h4>
                   <div class="mission-card__body" id="msn-002-body">
                     <div class="mission-card__inner">
-                      <p class="mission-card__desc">Le problème du dîner des philosophes : chaque philosophe est un thread qui partage des fourchettes avec ses voisins, sans data race ni interblocage.</p>
-                      <p class="mission-card__desc">Décision clé : [à compléter]</p>
+                      <p class="mission-card__desc">Une introduction au multithreading : des philosophes autour d'une table partagent une fourchette avec chaque voisin et doivent manger avant de mourir de faim. Chaque philosophe est un thread, chaque fourchette un mutex, sans data race ni interblocage.</p>
+                      <p class="mission-card__desc">Décision clé : un thread superviseur surveille le dernier repas de chacun et arrête la simulation dès qu'un philosophe meurt. Les philosophes impairs démarrent en décalé, pour que deux voisins ne prennent pas leur première fourchette en même temps.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Threads</dt><dd class="metrics__value">1 / philo</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">Synchro</dt><dd class="metrics__value">mutex</dd></div>
@@ -509,8 +511,8 @@
                   </h4>
                   <div class="mission-card__body" id="msn-004-body">
                     <div class="mission-card__inner">
-                      <p class="mission-card__desc">Un moteur 3D à la première personne inspiré de Wolfenstein 3D, transformé en vrai jeu avec un objectif : trouver la sortie du labyrinthe.</p>
-                      <p class="mission-card__desc">Décision clé : un rayon lancé par colonne d'écran (DDA), avec correction de l'effet fish-eye. Bonus : ennemis, portes et minimap.</p>
+                      <p class="mission-card__desc">Un moteur 3D à la première personne inspiré de Wolfenstein 3D, écrit à deux : la carte 2D d'un fichier .cub devient une vue 3D texturée où l'on se déplace en temps réel. Nous en avons fait un labyrinthe d'horreur, avec murs d'yeux animés, brouillard et une créature qui traque le joueur jusqu'à la sortie.</p>
+                      <p class="mission-card__desc">Décision clé : un rayon par colonne d'écran (champ de vision de 66°), avancé case par case dans la grille (DDA) jusqu'au mur, avec correction de l'effet fish-eye. Bonus : portes animées, minimap, vue à la souris et sprint.</p>
                       <dl class="metrics">
                         <div class="metrics__item"><dt class="metrics__label">Rendu</dt><dd class="metrics__value">raycasting DDA</dd></div>
                         <div class="metrics__item"><dt class="metrics__label">Équipe</dt><dd class="metrics__value">2</dd></div>
@@ -519,7 +521,7 @@
                       <div class="mission-card__footer">
                         <ul class="tags">
                           <li class="tag">c</li>
-                          <li class="tag">minilibx</li>
+                          <li class="tag">mlx42</li>
                         </ul>
                         <a class="mission-card__link" href="https://github.com/Hellisabd/Eyes-Cube">Rapport <span class="visually-hidden">de mission Eyes-Cube sur GitHub</span> <span aria-hidden="true">→</span></a>
                       </div>

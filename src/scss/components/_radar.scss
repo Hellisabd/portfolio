@@ -363,6 +363,18 @@ $glow: drop-shadow(0 0 4px $accent);
     display: none;
   }
 
+  // Résumé court : caché au survol, affiché seulement quand la fiche est ouverte.
+  &__summary {
+    display: none;
+    flex-basis: 100%;  // prend toute la ligne sous les données
+    font-size: 0.9375rem;
+    color: $text;
+  }
+
+  &__panel--sheet-open &__summary {
+    display: block;
+  }
+
   &__report {
     font-family: $font-mono;
     font-size: 0.75rem;

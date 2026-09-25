@@ -67,7 +67,13 @@ export function initRadarLock() {
     lock(contact);
     openContact = contact;
 
-    sheetContent.replaceChildren(...card.querySelector('.mission-card__inner').cloneNode(true).children);
+    const content = card.querySelector('.mission-card__inner').cloneNode(true);
+    // Si la mission a un résumé court dans le panneau, il remplace la description
+    // de la carte : la fiche ne garde que métriques, tags et lien.
+    if (document.querySelector(`#info-${id} .radar__summary`)) {
+      content.querySelectorAll('.mission-card__desc').forEach((desc) => desc.remove());
+    }
+    sheetContent.replaceChildren(...content.children);
     sheetTitle.textContent = `Fiche ${id.toUpperCase()} · ${card.querySelector('.contact-row__name').textContent}`;
     sheet.classList.add('is-open');
     panel.classList.add('radar__panel--sheet-open');
