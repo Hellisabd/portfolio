@@ -40,7 +40,8 @@ Roadmap à cocher. Une tâche = un commit. Après chaque tâche : `npm run valid
 - [x] Tests 360 / 390 / 768 / 1440px, navigation clavier.
 - [ ] Validation sur validator.w3.org.
 - [x] Build de production ; poids de la page et hash de build dans le footer (plugin dans `vite.config.js`).
-- [ ] Mise en ligne (hébergeur à choisir).
+- [x] Workflow GitHub Actions + GitHub Pages (déploiement automatique à chaque push sur main).
+- [ ] Activer Pages : Settings → Pages → Source : GitHub Actions.
 
 ## Contenu à fournir
 

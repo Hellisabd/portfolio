@@ -55,6 +55,19 @@ npm run build:game # recompile so_long en WebAssembly (nécessite Emscripten dan
 
 `build:game` n'est utile que pour régénérer le jeu : le build déjà compilé est dans `public/games/so_long/`.
 
+## Publication
+
+Le site est hébergé sur **GitHub Pages** et déployé automatiquement par GitHub Actions (`.github/workflows/deploy.yml`). Chaque push sur `main` :
+
+1. installe les dépendances (`npm ci`) ;
+2. valide le HTML (`npm run validate`) : une erreur bloque le déploiement ;
+3. construit le site (`npm run build`) ;
+4. publie le contenu de `dist/` sur Pages.
+
+Aucune étape manuelle n'est nécessaire. Les chemins du build sont relatifs (`base: './'` dans `vite.config.js`), ce qui permet l'hébergement sous le sous-chemin du dépôt.
+
+Réglage à faire une seule fois : *Settings → Pages → Source : GitHub Actions*.
+
 ## Structure
 
 ```
