@@ -45,12 +45,19 @@ export default defineConfig({
   base: './',
   plugins: [buildInfo()],
   build: {
-    // Deux pages : le portfolio et la page du jeu (chargée dans une iframe).
+    // Le portfolio, la page du jeu (chargée dans une iframe) et une page rapport par mission.
     rollupOptions: {
       input: {
         main: 'index.html',
         game: 'game.html',
         msn001: 'msn-001.html',
+        msn002: 'msn-002.html',
+        msn003: 'msn-003.html',
+        msn004: 'msn-004.html',
+        msn005: 'msn-005.html',
+        msn006: 'msn-006.html',
+        msn007: 'msn-007.html',
+        msn008: 'msn-008.html',
       },
     },
   },

@@ -56,7 +56,7 @@ Roadmap à cocher. Une tâche = un commit. Après chaque tâche : `npm run valid
 - [x] so_long compilé en WebAssembly (Emscripten), jouable depuis la carte MSN-001 (bouton JOUER, desktop).
 - [ ] Tester le jeu dans un vrai navigateur (fluidité avec GPU).
 - [ ] Adapter la DA du jeu (assets) à celle du site.
-- [ ] Pages « rapport » détaillées pour les missions (msn-001 faite, gabarit à valider puis msn-002 à 008).
+- [x] Pages « rapport » des missions : msn-001.html à msn-008.html (contexte, compétences, décision clé, liens).
 
 ## V2 (après le rendu)
 

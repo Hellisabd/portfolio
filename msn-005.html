@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webserv — Rapport MSN-005 — Basile Grosjean</title>
+    <meta name="description" content="Rapport de la mission MSN-005 : Webserv. Contexte, compétences, décision technique et liens.">
+    <meta name="theme-color" content="#030B18">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+    <link rel="stylesheet" href="/src/scss/main.scss">
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <!-- ============ HEADER (même structure que index.html, liens vers la page d'accueil) ============ -->
+    <header class="header">
+      <a class="header__brand" href="index.html" aria-label="Basile Grosjean, retour à l'accueil">
+        <span class="header__brand-short">B.</span><span class="header__brand-full">BASILE </span>GROSJEAN <span class="header__brand-id">// SYS-01</span>
+      </a>
+
+      <button class="header__toggle" type="button" aria-expanded="false" aria-controls="menu">[ MENU ]</button>
+
+      <div class="header__panel" id="menu">
+        <nav class="header__nav" aria-label="Navigation principale">
+          <ul class="header__list">
+            <li><a class="header__link" href="index.html#missions" aria-current="page"><span class="header__num">01</span> Missions</a></li>
+            <li><a class="header__link" href="index.html#systemes"><span class="header__num">02</span> Systèmes</a></li>
+            <li><a class="header__link" href="index.html#journal"><span class="header__num">03</span> Journal</a></li>
+            <li><a class="header__link" href="index.html#contact"><span class="header__num">04</span> Contact</a></li>
+          </ul>
+        </nav>
+        <a class="header__cv" href="basile-grosjean-CV.pdf" download>CV.PDF <span aria-hidden="true">↓</span></a>
+        <p class="header__status">
+          <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Balayage actif</span>
+          <span class="clock" aria-hidden="true">T+ 00:00:00</span>
+        </p>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <article class="report" aria-labelledby="report-title">
+        <nav class="report__crumbs" aria-label="Fil d'Ariane">
+          <ol class="report__crumbs-list">
+            <li><a class="report__crumb" href="index.html">Accueil</a></li>
+            <li><a class="report__crumb" href="index.html#missions">Missions</a></li>
+            <li><span class="report__crumb report__crumb--current" aria-current="page">MSN-005</span></li>
+          </ol>
+        </nav>
+
+        <header class="report__head">
+          <p class="section__eyebrow">Rapport de mission · MSN-005 · Secteur C++</p>
+          <h1 class="report__title" id="report-title">Webserv</h1>
+          <p class="report__status">
+            <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Confirmé</span>
+          </p>
+          <dl class="report__data">
+            <div class="report__data-row"><dt>Relèvement</dt><dd>128°</dd></div>
+            <div class="report__data-row"><dt>Distance</dt><dd>R5</dd></div>
+          </dl>
+        </header>
+
+        <section class="report__section" aria-labelledby="report-context">
+          <h2 class="report__heading" id="report-context">Contexte et objectif</h2>
+          <p>Un serveur HTTP/1.1 en C++98 écrit à trois, configuré par un fichier inspiré de Nginx : plusieurs ports, méthodes GET, POST et DELETE par route, redirections, pages d'erreur et taille maximale du corps. Il sert un site statique, gère l'upload et la suppression de fichiers, exécute des scripts CGI Python et garde une session par cookie.</p>
+        </section>
+
+        <section class="report__section" aria-labelledby="report-skills">
+          <h2 class="report__heading" id="report-skills">Compétences et technologies</h2>
+          <dl class="metrics">
+            <div class="metrics__item"><dt class="metrics__label">Protocole</dt><dd class="metrics__value">HTTP/1.1</dd></div>
+            <div class="metrics__item"><dt class="metrics__label">I/O</dt><dd class="metrics__value">epoll</dd></div>
+            <div class="metrics__item"><dt class="metrics__label">Durée</dt><dd class="metrics__value">1,5 mois</dd></div>
+          </dl>
+          <ul class="tags">
+            <li class="tag">c++</li>
+            <li class="tag">sockets</li>
+            <li class="tag">epoll</li>
+          </ul>
+        </section>
+
+        <section class="report__section" aria-labelledby="report-decision">
+          <h2 class="report__heading" id="report-decision">Décision technique clé</h2>
+          <p>Une architecture événementielle sans thread, où une seule boucle epoll gère toutes les connexions en I/O non bloquantes. Chaque client garde son propre état, pour qu'une requête puisse arriver en plusieurs morceaux, et le CGI tourne dans un processus surveillé sans bloquer la boucle.</p>
+        </section>
+
+        <section class="report__section" aria-labelledby="report-links">
+          <h2 class="report__heading" id="report-links">Liens</h2>
+          <ul class="report__links">
+            <li><a class="report__link" href="https://github.com/Hellisabd/Webserv">Code source sur GitHub <span aria-hidden="true">→</span></a></li>
+            <li><a class="report__link" href="index.html#missions">Retour aux missions <span aria-hidden="true">←</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__status">
+        <span class="status status--confirmed"><span class="status__dot" aria-hidden="true"></span>Tous systèmes nominaux</span>
+      </p>
+      <p class="footer__copy">© 2026 Basile Grosjean</p>
+    </footer>
+  </body>
+</html>
