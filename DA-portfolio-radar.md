@@ -162,7 +162,6 @@ Sections espacées de 64px en mobile, 120px en desktop. Media queries en `min-wi
 | MSN-005 | Webserv | C++ | 128° | R5 | Confirmé | Protocole HTTP/1.1 · I/O poll · Durée 1,5 mois | c++, sockets, poll |
 | MSN-006 | Inception | Web / infra | 205° | R5 | Confirmé | Conteneurs 3 · TLS 1.2 / 1.3 · Images from scratch | docker, nginx, mariadb |
 | MSN-007 | Transcendence Bubble-Pong | Web / infra | 242° | R6 | Confirmé | Équipe 4 · Commits 300+ · Temps réel WebSockets | typescript, fastify, sqlite |
-| MSN-008 | AirQuality | Embarqué | 318° | horizon | Non confirmé | MCU ESP32 · Bus I2C + UART · Phase [x] / 8 | c++, esp32, fastify |
 | MSN-009 | Prochaine mission | — | — | hors portée | En approche | Début janv. 2027 · Rythme 4 / 2 sem. · Zone Grand Est | alternance |
 
 ### Systèmes à bord

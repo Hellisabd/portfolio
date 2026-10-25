@@ -245,7 +245,7 @@ npm run build:game # recompile so_long (Emscripten dans ~/emsdk) vers public/gam
 
 1. **Cœur** (jours 1 à 3) : tout ce qui valide les 8 critères du sujet. Une version en ligne doit exister à la fin du jour 3.
 2. **Bonus** (jour 4) : so_long jouable en WebAssembly depuis son rapport de mission ; pages « rapport » détaillées pour les missions.
-3. **V2** (après le rendu) : portfolio servi par Webserv, avancement d'AirQuality mis à jour au fil des phases.
+3. **V2** (après le rendu) : portfolio servi par Webserv.
 
 Ne commence jamais un bonus tant que le cœur n'est pas terminé et validé.
 
@@ -266,7 +266,6 @@ Le numéro de téléphone n'apparaît pas dans la page : seulement l'email, la z
 | MSN-005 | Webserv | C++ | 128° | R5 | Confirmé | Protocole HTTP/1.1 · I/O poll · Durée 1,5 mois | c++, sockets, poll | Hellisabd/Webserv |
 | MSN-006 | Inception | Web / infra | 205° | R5 | Confirmé | Conteneurs 3 · TLS 1.2 / 1.3 · Images from scratch | docker, nginx, mariadb | Hellisabd/Inception |
 | MSN-007 | Transcendence Bubble-Pong | Web / infra | 242° | R6 | Confirmé | Équipe 4 · Commits 300+ · Temps réel WebSockets | typescript, fastify, sqlite | Hellisabd/Transcendence-Bubble-Pong |
-| MSN-008 | AirQuality | Embarqué | 318° | horizon (r ≈ 282) | Non confirmé | MCU ESP32 · Bus I2C + UART · Phase [x] / 8 | c++, esp32, fastify | Hellisabd/AirQuality |
 | MSN-009 | Prochaine mission | — | — | hors portée | En approche | Début janv. 2027 · Rythme 4 / 2 sem. · Zone Grand Est | alternance | — |
 
 Rayons des anneaux de distance (repère 700) : R2 = 70, R3 = 120, R4 = 170, R5 = 215, R6 = 255, horizon ≈ 282.

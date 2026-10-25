@@ -71,7 +71,7 @@
             </div>
             <div class="legend__row">
               <dt class="legend__label">Distance</dt>
-              <dd class="legend__value">R2 premiers projets → R6 projet final · horizon : en cours</dd>
+              <dd class="legend__value">R2 premiers projets → R6 projet final</dd>
             </div>
             <div class="legend__row">
               <dt class="legend__label">Base</dt>
@@ -252,14 +252,6 @@
                 <text class="radar__label" x="136.8" y="468.7">Transcendence Bubble-Pong</text>
                 <text class="radar__label radar__label--id" x="136.8" y="481.7">MSN-007</text>
               </a>
-              <a class="radar__contact radar__contact--msn-008" href="#msn-008" tabindex="-1" aria-label="MSN-008, AirQuality, secteur Embarqué, relèvement 318°, distance horizon, non confirmé">
-                <circle class="radar__hit" cx="161.3" cy="140.4" r="22"/>
-                <g class="radar__blip">
-                  <circle class="radar__dot radar__dot--unconfirmed" cx="161.3" cy="140.4" r="7"/>
-                </g>
-                <text class="radar__label" x="173.3" y="139.4">AirQuality</text>
-                <text class="radar__label radar__label--id" x="173.3" y="152.4">MSN-008</text>
-              </a>
 
               <!-- 8. Centre -->
               <circle class="radar__core" cx="350" cy="350" r="4"/>
@@ -348,16 +340,6 @@
                 </dl>
                 <p class="radar__summary">Projet final du tronc commun, à quatre : un Pong en ligne en temps réel, avec matchmaking, classement et 2FA, réparti en services Docker autour d'un back-end Fastify.</p>
                 <a class="radar__report" href="msn-007.html">Rapport <span class="visually-hidden">de mission Transcendence Bubble-Pong</span> <span aria-hidden="true">→</span></a>
-              </div>
-              <div class="radar__info" id="info-msn-008" hidden>
-                <dl class="radar__data">
-                  <div class="radar__data-row"><dt>Mission</dt><dd>AirQuality</dd></div>
-                  <div class="radar__data-row"><dt>ID</dt><dd>MSN-008</dd></div>
-                  <div class="radar__data-row"><dt>Relèvement</dt><dd>318°</dd></div>
-                  <div class="radar__data-row"><dt>Distance</dt><dd>Horizon</dd></div>
-                  <div class="radar__data-row"><dt>Statut</dt><dd>Non confirmé</dd></div>
-                </dl>
-                <a class="radar__report" href="https://github.com/Hellisabd/AirQuality">Rapport <span class="visually-hidden">de mission AirQuality sur GitHub</span> <span aria-hidden="true">→</span></a>
               </div>
             </div>
 
@@ -663,44 +645,6 @@
             </ul>
           </div>
 
-          <!-- Secteur Embarqué -->
-          <div class="missions__sector">
-            <h3 class="missions__sector-title">Secteur Embarqué · 1 mission</h3>
-            <ul class="missions__list">
-              <li class="contact-row" id="msn-008">
-                <article class="mission-card" aria-labelledby="msn-008-title">
-                  <h4 class="mission-card__heading" id="msn-008-title">
-                    <button class="contact-row__toggle" type="button" aria-expanded="true" aria-controls="msn-008-body">
-                      <span class="contact-row__name">AirQuality</span>
-                      <span class="contact-row__id">MSN-008 · Secteur Embarqué</span>
-                      <span class="status status--unconfirmed"><span class="status__dot" aria-hidden="true"></span>Non confirmé</span>
-                      <span class="contact-row__sign" aria-hidden="true">+</span>
-                    </button>
-                  </h4>
-                  <div class="mission-card__body" id="msn-008-body">
-                    <div class="mission-card__inner">
-                      <p class="mission-card__desc">Une station de mesure de la qualité de l'air sur ESP32 : capteurs reliés en I2C et UART, données envoyées vers un back-end Fastify. Projet en cours.</p>
-                      <p class="mission-card__desc">Décision clé : [à compléter]</p>
-                      <dl class="metrics">
-                        <div class="metrics__item"><dt class="metrics__label">MCU</dt><dd class="metrics__value">ESP32</dd></div>
-                        <div class="metrics__item"><dt class="metrics__label">Bus</dt><dd class="metrics__value">I2C + UART</dd></div>
-                        <div class="metrics__item"><dt class="metrics__label">Phase</dt><dd class="metrics__value">[x] / 8</dd></div>
-                      </dl>
-                      <div class="mission-card__footer">
-                        <ul class="tags">
-                          <li class="tag">c++</li>
-                          <li class="tag">esp32</li>
-                          <li class="tag">fastify</li>
-                        </ul>
-                        <a class="mission-card__link" href="msn-001.html">Rapport <span class="visually-hidden">de mission AirQuality sur GitHub</span> <span aria-hidden="true">→</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            </ul>
-          </div>
-
           <!-- Hors portée : l'alternance -->
           <article class="mission-card mission-card--next" id="msn-009" aria-labelledby="msn-009-title">
             <p class="mission-card__header">
@@ -810,10 +754,6 @@
           <div class="inventory__row">
             <dt class="inventory__label">Équipe</dt>
             <dd class="inventory__value">Projets à deux (minishell, Eyes-Cube), à trois (Webserv) et à quatre (Transcendence, plus de 300 commits).</dd>
-          </div>
-          <div class="inventory__row">
-            <dt class="inventory__label">Embarqué</dt>
-            <dd class="inventory__value">AirQuality, en cours : ESP32, capteurs reliés en I2C et UART, données envoyées vers un back-end Fastify.</dd>
           </div>
         </dl>
 
