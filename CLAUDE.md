@@ -170,7 +170,7 @@ portfolio/
 ├── CLAUDE.md
 ├── PLAN.md                  # roadmap à cocher
 ├── index.html
-├── msn-001.html … msn-008.html   # pages « rapport » des missions (même en-tête, SCSS et JS que l'accueil)
+├── msn-001.html … msn-007.html   # pages « rapport » des missions (même en-tête, SCSS et JS que l'accueil)
 ├── game.html                # page du jeu so_long (chargée dans une iframe)
 ├── package.json
 ├── vite.config.js

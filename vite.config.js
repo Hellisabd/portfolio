@@ -57,7 +57,6 @@ export default defineConfig({
         msn005: 'msn-005.html',
         msn006: 'msn-006.html',
         msn007: 'msn-007.html',
-        msn008: 'msn-008.html',
       },
     },
   },
