@@ -9,6 +9,23 @@
   padding-block: 3rem $section-gap;
   @include container;
 
+  // Portrait au-dessus du titre : petit, cadre 1px, angles droits.
+  &__figure {
+    width: 7.5rem;
+    margin-bottom: 1.75rem;
+
+    @include bp(md) {
+      width: 9rem;
+    }
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    height: auto;  // garde le rapport 4:5 avec les attributs width / height
+    border: 1px solid $line-strong;
+  }
+
   &__eyebrow {
     @include label;
     margin-bottom: 1.25rem;

@@ -1,37 +1,17 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// Opérateur : portrait et présentation. Photo sobre, cadre 1px, angles droits.
+// Opérateur : courte présentation, le portrait est dans le hero.
 .profile {
-  display: grid;
-  gap: 2rem;
-  align-items: start;
-
-  @include bp(md) {
-    grid-template-columns: 15rem minmax(0, 1fr);
-    gap: 3rem;
-  }
-
-  &__figure {
-    max-width: 15rem;
-  }
-
-  &__photo {
-    display: block;
-    width: 100%;
-    height: auto;  // garde le rapport 4:5 avec les attributs width / height
-    border: 1px solid $line-strong;
-  }
-
   &__title {
     margin-bottom: 1rem;
   }
 
-  &__text p + p {
-    margin-top: 0.75rem;
-  }
-
   &__text {
     max-width: 40rem;
+
+    p + p {
+      margin-top: 0.75rem;
+    }
   }
 }
