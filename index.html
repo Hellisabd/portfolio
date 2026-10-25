@@ -396,6 +396,19 @@
         </dl>
       </section>
 
+      <!-- ============ OPÉRATEUR ============ -->
+      <section class="section profile reveal" aria-labelledby="profile-title">
+        <figure class="profile__figure">
+          <img class="profile__photo" src="basile-grosjean.jpg" width="480" height="600" alt="Portrait de Basile Grosjean, en chemise bleu clair, les bras croisés devant un mur d'alvéoles hexagonales" loading="lazy">
+        </figure>
+        <div class="profile__text">
+          <p class="section__eyebrow">Opérateur</p>
+          <h2 class="profile__title" id="profile-title">Basile Grosjean</h2>
+          <p>Après une première année de licence de psychologie, j'ai changé de voie pour la programmation : École 42 de Mulhouse, certifié en 2025, puis Pre-Master of Science à Epitech.</p>
+          <p>Ce qui me plaît, c'est de comprendre comment les choses fonctionnent vraiment : un processus, une connexion réseau, un conteneur, un capteur. Chaque projet de ce portfolio est une mission, avec son rapport détaillé.</p>
+        </div>
+      </section>
+
       <!-- ============ 01 MISSIONS ============ -->
       <section class="section missions reveal" id="missions" aria-labelledby="missions-title">
         <h2 class="section__title" id="missions-title"><span class="section__num">01</span> Missions</h2>
@@ -761,6 +774,43 @@
             <span class="status status--approaching"><span class="status__dot" aria-hidden="true"></span>Recherche</span>
           </li>
         </ol>
+
+        <h3 class="journal__subtitle">Ce que j'ai appris</h3>
+        <p class="section__intro">Du premier jeu en C à un projet à quatre, mes missions m'ont fait passer de la simple exécution à la conception : découper un problème, choisir une architecture, puis la défendre.</p>
+        <dl class="inventory">
+          <div class="inventory__row">
+            <dt class="inventory__label">Processus</dt>
+            <dd class="inventory__value">minishell : une chaîne lexer, expansion, parser et executor, un processus par commande reliées par des pipes, et une seule variable globale pour les signaux.</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Concurrence</dt>
+            <dd class="inventory__value">Philosophers : un thread par philosophe, un mutex par fourchette et un superviseur, sans data race ni interblocage.</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Réseau</dt>
+            <dd class="inventory__value">Webserv : un serveur HTTP/1.1 sans thread, où une seule boucle epoll gère toutes les connexions. Transcendence : le temps réel par WebSockets.</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Infrastructure</dt>
+            <dd class="inventory__value">Inception : NGINX en TLS, WordPress et MariaDB dans leurs conteneurs, construits à partir d'images Debian et installés sans intervention.</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Graphisme</dt>
+            <dd class="inventory__value">so_long : validation d'une carte par flood fill. Eyes-Cube : un rayon par colonne d'écran avancé dans la grille (DDA), avec correction du fish-eye.</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Back-end</dt>
+            <dd class="inventory__value">Transcendence : API REST Fastify, authentification JWT et 2FA, base SQLite, et déplacement de la logique du jeu du navigateur vers le serveur.</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Équipe</dt>
+            <dd class="inventory__value">Projets à deux (minishell, Eyes-Cube), à trois (Webserv) et à quatre (Transcendence, plus de 300 commits).</dd>
+          </div>
+          <div class="inventory__row">
+            <dt class="inventory__label">Embarqué</dt>
+            <dd class="inventory__value">AirQuality, en cours : ESP32, capteurs reliés en I2C et UART, données envoyées vers un back-end Fastify.</dd>
+          </div>
+        </dl>
 
         <h3 class="journal__subtitle">Hors mission</h3>
         <ul class="tags journal__hobbies">
