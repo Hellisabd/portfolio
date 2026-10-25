@@ -1,0 +1,123 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Page « rapport » d'une mission : fil d'Ariane, en-tête, puis sections empilées.
+.report {
+  @include container;
+  padding-block: 2rem $section-gap;
+
+  @include bp(lg) {
+    max-width: 60rem;
+    margin-inline: auto;
+    padding-block: 3rem $section-gap-lg;
+  }
+
+  &__crumbs-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  // Séparateur « / » entre les éléments, ajouté en CSS (décoratif).
+  &__crumbs-list li + li::before {
+    content: '/';
+    margin-inline: 0.5rem;
+    color: $label;
+  }
+
+  &__crumbs-list li {
+    display: flex;
+    align-items: center;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
+  }
+
+  &__crumb {
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-min;
+    color: $text-muted;
+    text-decoration: none;
+    transition: color $fast;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &--current {
+      color: $text-title;
+    }
+  }
+
+  &__head {
+    padding-bottom: 2rem;
+    border-bottom: $border;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__status {
+    margin-bottom: 1.5rem;
+  }
+
+  &__data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+  }
+
+  &__data-row {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+
+    dt {
+      @include label;
+    }
+
+    dd {
+      color: $text-title;
+    }
+  }
+
+  &__section {
+    display: grid;
+    gap: 1rem;
+    padding-block: 2rem;
+    border-bottom: $border;
+
+    @include bp(md) {
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  &__heading {
+    @include label;
+    font-weight: 400;
+  }
+
+  &__links {
+    display: grid;
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: 1ch;
+    align-items: center;
+    min-height: $tap-min;
+    font-family: $font-mono;
+    font-size: 0.875rem;
+    color: $accent;
+    text-decoration: none;
+    transition: color $fast;
+
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+}

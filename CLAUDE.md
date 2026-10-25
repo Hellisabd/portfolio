@@ -148,7 +148,7 @@ Planètes, fusées, astronautes, mascottes, emojis. Lueur, dégradés et néons 
 ## Stack
 
 - **Vite** : serveur de dev et build.
-- **HTML sémantique** : un seul `index.html`.
+- **HTML sémantique** : `index.html` (le radar et les sections) et une page « rapport » par mission (`msn-00X.html`), exigées par le sujet (plusieurs pages distinctes, navigation cohérente).
 - **SCSS** (paquet `sass`) : compilé par Vite.
 - **JavaScript vanilla** en modules ES : aucune librairie d'animation, tout se fait en CSS et avec `IntersectionObserver`.
 - **Formspree** : envoi du formulaire sans backend.
@@ -170,6 +170,7 @@ portfolio/
 ├── CLAUDE.md
 ├── PLAN.md                  # roadmap à cocher
 ├── index.html
+├── msn-001.html … msn-008.html   # pages « rapport » des missions (même en-tête, SCSS et JS que l'accueil)
 ├── game.html                # page du jeu so_long (chargée dans une iframe)
 ├── package.json
 ├── vite.config.js
@@ -228,7 +229,7 @@ portfolio/
 npm run dev        # serveur de développement
 npm run build      # build de production dans dist/
 npm run preview    # prévisualiser le build
-npm run validate   # html-validate sur index.html et game.html
+npm run validate   # html-validate sur index.html, game.html et les pages msn-00X.html
 npm run build:game # recompile so_long (Emscripten dans ~/emsdk) vers public/games/so_long/
 ```
 

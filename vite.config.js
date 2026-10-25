@@ -50,6 +50,7 @@ export default defineConfig({
       input: {
         main: 'index.html',
         game: 'game.html',
+        msn001: 'msn-001.html',
       },
     },
   },
